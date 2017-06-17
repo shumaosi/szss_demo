@@ -8,11 +8,13 @@
     <TextView
         android:id="@+id/profile_view_title"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/green_77bc1f"
-        android:gravity="center"
+        android:layout_height="50dp"
+        android:background="@color/theme_color_77bc1f"
+        android:paddingLeft="16dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_white"
         android:text="@string/title_profile"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold"/>
 
     <android.support.v7.widget.RecyclerView

@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/green_77bc1f</item>
-        <item name="colorPrimaryDark">@color/green_77bc1f</item>
+        <item name="colorPrimary">@color/theme_color_77bc1f</item>
+        <item name="colorPrimaryDark">@color/theme_color_77bc1f</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -23,8 +23,9 @@
 
     <style name="TabLayoutTextStyle" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/brown_f57a46</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_black_22</item>
     </style>
 
 </resources>

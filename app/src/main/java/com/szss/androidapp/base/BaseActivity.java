@@ -3,7 +3,6 @@ package com.szss.androidapp.base;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
@@ -80,7 +79,7 @@ public class BaseActivity extends AppCompatActivity {
 	 * 子类可以重写改变状态栏颜色
 	 */
 	protected int setStatusBarColor() {
-		return getResources().getColor(R.color.green_77bc1f);
+		return getResources().getColor(R.color.theme_color_77bc1f);
 	}
 
 	/**

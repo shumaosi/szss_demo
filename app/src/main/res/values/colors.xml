@@ -94,5 +94,6 @@
     <color name="tapa_btn_select">#b6491f</color>
     <color name="tapa_btn_disable">#FABA9F</color>
     <color name="green_77bc1f">#77BC1F</color>
+    <color name="theme_color_77bc1f">#FF4141</color>
     <color name="gray_eeeeee">#EEEEEE</color>
 </resources>

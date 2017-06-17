@@ -9,9 +9,10 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/main_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/green_77bc1f"
+        android:layout_height="50dp"
+        android:background="@color/theme_color_77bc1f"
         app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/text_white"
         app:tabTextAppearance="@style/TabLayoutTextStyle"/>
 
     <android.support.v4.view.ViewPager
