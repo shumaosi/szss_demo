@@ -1,4 +1,4 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.home.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -56,12 +56,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 		public HomeViewPagerAdapter(FragmentManager fm) {
 			super(fm);
 			mFragmentList = new ArrayList<>();
-			mFragmentList.add(new Pair<String, Fragment>("松鼠新闻", NewsFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("图片", ImageFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("微信", WeiXinFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("OkRx2", ListFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("OkDownload", ListFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("OkUpload", ListFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("松鼠新闻", HomeNewsFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("图片", HomeImageFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("微信", HomeWeiXinFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("OkRx2", HomeListFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("OkDownload", HomeListFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("OkUpload", HomeListFragment.newInstance()));
 		}
 
 		@Override

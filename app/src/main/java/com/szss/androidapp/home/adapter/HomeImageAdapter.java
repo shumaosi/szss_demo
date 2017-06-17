@@ -1,4 +1,4 @@
-package com.szss.androidapp.adapter;
+package com.szss.androidapp.home.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.fragment.ImageFragment;
 import com.szss.androidapp.util.DensityUtil;
 import com.szss.androidapp.util.Utils;
 
@@ -17,11 +16,11 @@ import java.util.ArrayList;
  * Created by wuwei on 2017/6/14.
  */
 
-public class ImageAdapter extends RecyclerView.Adapter {
+public class HomeImageAdapter extends RecyclerView.Adapter {
 
 	private ArrayList<Integer> imageRes;
 
-	public ImageAdapter() {
+	public HomeImageAdapter() {
 		imageRes = new ArrayList<>();
 		imageRes.add(R.drawable.image10);
 		imageRes.add(R.drawable.image11);

@@ -1,4 +1,4 @@
-package com.szss.androidapp.activity;
+package com.szss.androidapp.base;
 
 import android.graphics.Color;
 import android.os.Build;

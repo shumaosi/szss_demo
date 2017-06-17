@@ -1,13 +1,14 @@
-package com.szss.androidapp.activity;
+package com.szss.androidapp.guide;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.MainActivity;
+import com.szss.androidapp.base.BaseActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;

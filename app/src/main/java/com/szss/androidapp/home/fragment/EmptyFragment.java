@@ -1,4 +1,4 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.home.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.szss.androidapp.adapter;
+package com.szss.androidapp.home.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,11 +15,11 @@ import java.util.ArrayList;
  * Created by wuwei on 2017/5/17.
  */
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.BaseViewHolder> {
+public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.BaseViewHolder> {
 
 	ArrayList<ItemModel> mDataList;
 
-	public ListAdapter() {
+	public HomeListAdapter() {
 
 		mDataList = new ArrayList<>();
 

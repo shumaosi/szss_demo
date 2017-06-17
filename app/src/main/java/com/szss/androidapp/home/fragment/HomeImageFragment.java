@@ -1,35 +1,30 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.home.fragment;
 
-import android.content.Context;
-import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.adapter.ImageAdapter;
+import com.szss.androidapp.home.adapter.HomeImageAdapter;
 import com.szss.androidapp.util.DensityUtil;
 
 /**
  * Created by wuwei on 2017/6/14.
  */
 
-public class ImageFragment extends Fragment {
+public class HomeImageFragment extends Fragment {
 
 	private RecyclerView mRecyclerView;
 
-	public static ImageFragment newInstance() {
-		ImageFragment imageFragment = new ImageFragment();
-		return imageFragment;
+	public static HomeImageFragment newInstance() {
+		HomeImageFragment homeImageFragment = new HomeImageFragment();
+		return homeImageFragment;
 	}
 
 	@Override
@@ -46,7 +41,7 @@ public class ImageFragment extends Fragment {
 	}
 
 	private void initRecyclerView() {
-		final ImageAdapter imageAdapter = new ImageAdapter();
+		final HomeImageAdapter homeImageAdapter = new HomeImageAdapter();
 		GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
 		final int spacing = DensityUtil.dip2px(getActivity(), 4);
 		mRecyclerView.setLayoutManager(gridLayoutManager);
@@ -71,7 +66,7 @@ public class ImageFragment extends Fragment {
 				}
 			}
 		});
-		mRecyclerView.setAdapter(imageAdapter);
+		mRecyclerView.setAdapter(homeImageAdapter);
 	}
 
 }

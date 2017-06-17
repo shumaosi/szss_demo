@@ -1,4 +1,4 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.home.fragment;
 
 import android.app.Activity;
 import android.graphics.Canvas;
@@ -14,31 +14,31 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.adapter.ListAdapter;
+import com.szss.androidapp.home.adapter.HomeListAdapter;
 
 /**
  * Created by wuwei on 2017/5/17.
  */
 
-public class ListFragment extends Fragment {
+public class HomeListFragment extends Fragment {
 
 	private Activity mActivity;
 	private RecyclerView mRecyclerView;
 	private RecyclerView.LayoutManager mLayoutManager;
-	private ListAdapter mListAdapter;
+	private HomeListAdapter mHomeListAdapter;
 
-	public ListFragment() {
+	public HomeListFragment() {
 	}
 
-	public static ListFragment newInstance() {
-		ListFragment listFragment = new ListFragment();
-		return listFragment;
+	public static HomeListFragment newInstance() {
+		HomeListFragment homeListFragment = new HomeListFragment();
+		return homeListFragment;
 	}
 
-	public static ListFragment newInstance(int page) {
+	public static HomeListFragment newInstance(int page) {
 		Bundle bundle = new Bundle();
 		bundle.putInt("page", page);
-		ListFragment f = new ListFragment();
+		HomeListFragment f = new HomeListFragment();
 		f.setArguments(bundle);
 		return f;
 	}
@@ -60,9 +60,9 @@ public class ListFragment extends Fragment {
 
 	private void init() {
 		mLayoutManager = new LinearLayoutManager(mActivity);
-		mListAdapter = new ListAdapter();
+		mHomeListAdapter = new HomeListAdapter();
 		mRecyclerView.setLayoutManager(mLayoutManager);
-		mRecyclerView.setAdapter(mListAdapter);
+		mRecyclerView.setAdapter(mHomeListAdapter);
 		mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
 			@Override
 			public void getItemOffsets(Rect outRect, View view, RecyclerView parent,

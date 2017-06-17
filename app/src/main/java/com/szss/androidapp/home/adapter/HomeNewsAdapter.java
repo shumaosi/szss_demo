@@ -1,4 +1,4 @@
-package com.szss.androidapp.adapter;
+package com.szss.androidapp.home.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by wuwei on 2017/6/15.
  */
 
-public class NewsAdapter extends RecyclerView.Adapter {
+public class HomeNewsAdapter extends RecyclerView.Adapter {
 
 	public static final String LOADING_MORE = "loading_more";
 

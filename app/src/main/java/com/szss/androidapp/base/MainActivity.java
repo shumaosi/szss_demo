@@ -1,4 +1,4 @@
-package com.szss.androidapp.activity;
+package com.szss.androidapp.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,9 +8,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.fragment.HomeFragment;
-import com.szss.androidapp.fragment.ImageFragment;
-import com.szss.androidapp.fragment.ProfileFragment;
+import com.szss.androidapp.home.fragment.HomeFragment;
+import com.szss.androidapp.home.fragment.HomeImageFragment;
+import com.szss.androidapp.profile.fragment.ProfileFragment;
 
 import java.util.ArrayList;
 
@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity {
 	private void initFragments() {
 		mFragments = new ArrayList<>();
 		mFragments.add(new HomeFragment());
-		mFragments.add(new ImageFragment());
+		mFragments.add(new HomeImageFragment());
 		mFragments.add(new ProfileFragment());
 	}
 

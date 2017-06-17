@@ -1,4 +1,4 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.home.fragment;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -19,7 +19,7 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.model.Response;
 import com.szss.androidapp.R;
-import com.szss.androidapp.adapter.NewsAdapter;
+import com.szss.androidapp.home.adapter.HomeNewsAdapter;
 import com.szss.androidapp.model.NewsModel;
 import com.szss.androidapp.model.NewsResponse;
 import com.szss.androidapp.model.NewsCallback;
@@ -33,7 +33,7 @@ import java.util.List;
  * Created by wuwei on 2017/6/15.
  */
 
-public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
 	private SwipeRefreshLayout mSwipeRefreshLayout;
 	private RecyclerViewOnScrollListener mRecyclerViewOnScrollListener;
@@ -41,11 +41,11 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 	private LinearLayoutManager mLinearLayoutManager;
 	private String url;
 	private int currentPage = 2;
-	private NewsAdapter mNewsAdapter;
+	private HomeNewsAdapter mHomeNewsAdapter;
 	private boolean isLoadMore = false;
 
-	public static NewsFragment newInstance() {
-		return new NewsFragment();
+	public static HomeNewsFragment newInstance() {
+		return new HomeNewsFragment();
 	}
 
 	@Nullable
@@ -77,7 +77,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 						List<NewsModel> results = response.body().results;
 						if (results != null) {
 							currentPage = 2;
-							mNewsAdapter.addDatas(results);
+							mHomeNewsAdapter.addDatas(results);
 						}
 					}
 
@@ -101,7 +101,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 	private void loadMoreData() {
 		isLoadMore = true;
-		mNewsAdapter.addLoadingView();
+		mHomeNewsAdapter.addLoadingView();
 		OkGo.<NewsResponse<List<NewsModel>>>get(url + currentPage)
 				.cacheMode(CacheMode.NO_CACHE)
 				.execute(new NewsCallback<NewsResponse<List<NewsModel>>>() {
@@ -110,7 +110,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 						List<NewsModel> results = response.body().results;
 						if (results != null && results.size() > 0) {
 							currentPage++;
-							mNewsAdapter.addDatas(results);
+							mHomeNewsAdapter.addDatas(results);
 						}
 					}
 
@@ -118,7 +118,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 					public void onFinish() {
 						super.onFinish();
 						isLoadMore = false;
-						mNewsAdapter.removeLoadingView();
+						mHomeNewsAdapter.removeLoadingView();
 					}
 				});
 	}
@@ -132,10 +132,10 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 	private void initRecyclerView() {
 		url = Urls.URL_GANK_BASE + "Android" + "/" + 20 + "/";
-		mNewsAdapter = new NewsAdapter();
+		mHomeNewsAdapter = new HomeNewsAdapter();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
 		mRecyclerView.setLayoutManager(mLinearLayoutManager);
-		mRecyclerView.setAdapter(mNewsAdapter);
+		mRecyclerView.setAdapter(mHomeNewsAdapter);
 		mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
 			@Override
 			public void getItemOffsets(Rect outRect, View view, RecyclerView parent,

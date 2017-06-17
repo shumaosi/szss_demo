@@ -1,4 +1,4 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.home.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,11 +13,11 @@ import com.szss.androidapp.R;
  * Created by wuwei on 2017/6/14.
  */
 
-public class WeiXinFragment extends Fragment {
+public class HomeWeiXinFragment extends Fragment {
 
-	public static WeiXinFragment newInstance() {
-		WeiXinFragment weiXinFragment = new WeiXinFragment();
-		return weiXinFragment;
+	public static HomeWeiXinFragment newInstance() {
+		HomeWeiXinFragment homeWeiXinFragment = new HomeWeiXinFragment();
+		return homeWeiXinFragment;
 	}
 
 	@Override

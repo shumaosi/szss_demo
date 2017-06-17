@@ -1,4 +1,4 @@
-package com.szss.androidapp.fragment;
+package com.szss.androidapp.profile.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.adapter.ProfileAdapter;
 import com.szss.androidapp.model.ProfileItemModel;
+import com.szss.androidapp.profile.adapter.ProfileAdapter;
 
 import java.util.ArrayList;
 

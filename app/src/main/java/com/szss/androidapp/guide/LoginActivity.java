@@ -1,4 +1,4 @@
-package com.szss.androidapp.activity;
+package com.szss.androidapp.guide;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.MainActivity;
+import com.szss.androidapp.base.BaseActivity;
 
 /**
  * Created by wuwei on 2017/6/15.
