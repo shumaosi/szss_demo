@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/login_with_weixin"
-            android:textColor="@color/text_black_3b"
+            android:textColor="@color/black_3b3b3b"
             android:textSize="15sp"
             android:textStyle="bold"/>
 
@@ -100,7 +100,7 @@
             android:layout_gravity="center"
             android:layout_weight="0"
             android:text="@string/or"
-            android:textColor="@color/text_white"
+            android:textColor="@color/all_white"
             android:textSize="15sp"
             android:textStyle="bold"/>
 
@@ -130,8 +130,8 @@
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="50dp"
-        android:textColor="@color/text_white"
-        android:textColorHint="@color/text_white"
+        android:textColor="@color/all_white"
+        android:textColorHint="@color/all_white"
         android:textSize="16sp"/>
 
 
@@ -149,8 +149,8 @@
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="50dp"
-        android:textColor="@color/text_white"
-        android:textColorHint="@color/text_white"
+        android:textColor="@color/all_white"
+        android:textColorHint="@color/all_white"
         android:textSize="16sp"/>
 
     <Button
@@ -177,7 +177,7 @@
         android:layout_marginTop="24dip"
         android:gravity="center_horizontal"
         android:text="@string/forget_password"
-        android:textColor="@color/text_white"
+        android:textColor="@color/all_white"
         android:textSize="16sp"/>
 
 </LinearLayout>

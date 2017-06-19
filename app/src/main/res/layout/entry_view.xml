@@ -18,7 +18,7 @@
         android:paddingTop="2dp"
         android:text="@string/go_start"
         android:textAllCaps="true"
-        android:textColor="@color/text_black_3b"
+        android:textColor="@color/black_3b3b3b"
         android:layout_marginTop="20dp"
         android:textSize="17sp"
         android:textStyle="bold"/>

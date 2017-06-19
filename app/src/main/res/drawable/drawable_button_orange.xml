@@ -5,11 +5,11 @@
     <!-- 非触摸模式下获得焦点并单击时的背景颜色 -->
     <!--    <item android:drawable="@color/pressed" android:state_focused="true" android:state_pressed="true"/> -->
     <!-- 触摸模式下单击时的背景颜色 -->
-    <item android:drawable="@color/tapa_btn_select" android:state_focused="false" android:state_pressed="true"/>
+    <item android:drawable="@color/orange_F1642C" android:state_focused="false" android:state_pressed="true"/>
     <!-- 选中时的背景颜色 -->
-    <item android:drawable="@color/tapa_btn_select" android:state_selected="true"/>
+    <item android:drawable="@color/orange_F1642C" android:state_selected="true"/>
     <!-- 获得焦点时的背景  颜色 -->
-    <item android:drawable="@color/tapa_btn_select" android:state_focused="true"/>
+    <item android:drawable="@color/orange_F1642C" android:state_focused="true"/>
 
-    <item android:drawable="@color/tapa_btn_disable" android:state_enabled="false"/>
+    <item android:drawable="@color/orange_F1642C" android:state_enabled="false"/>
 </selector>

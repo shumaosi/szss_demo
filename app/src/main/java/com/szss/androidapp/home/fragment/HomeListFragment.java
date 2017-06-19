@@ -72,7 +72,7 @@ public class HomeListFragment extends Fragment {
 
 			@Override
 			public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-				ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.text_gray_b5));
+				ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.gray_b5b5b5));
 				int count = parent.getChildCount();
 				for (int i = 0; i < count; i++) {
 					View v = parent.getChildAt(i);

@@ -20,7 +20,7 @@ public class ThemeUtil {
 	 */
 	public static void setActionBarStyle(Activity activity) {
 		Drawable drawable;
-		drawable = new ColorDrawable(activity.getResources().getColor(R.color.text_orange_ff6b16));
+		drawable = new ColorDrawable(activity.getResources().getColor(R.color.orange_FF6B16));
 		if (drawable == null) {
 			return;
 		}

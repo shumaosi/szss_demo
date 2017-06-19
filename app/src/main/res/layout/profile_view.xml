@@ -12,7 +12,7 @@
         android:background="@color/theme_color_77bc1f"
         android:paddingLeft="16dp"
         android:gravity="center_vertical"
-        android:textColor="@color/text_white"
+        android:textColor="@color/all_white"
         android:text="@string/title_profile"
         android:textSize="20sp"
         android:textStyle="bold"/>
