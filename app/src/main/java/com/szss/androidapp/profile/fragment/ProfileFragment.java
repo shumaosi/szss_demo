@@ -47,6 +47,19 @@ public class ProfileFragment extends Fragment implements ProfileAdapter.ProfileA
 		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
 		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
 		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
+		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
+
 		mProfileAdapter.addData(list);
 	}
 

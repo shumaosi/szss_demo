@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/gray_eeeeee">
+
+    <TextView
+        android:id="@+id/title_item_tag"
+        android:layout_width="4dp"
+        android:layout_height="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@color/red_FF4646"/>
+
+    <TextView
+        android:id="@+id/title_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/title_item_tag"
+        android:text="今日热门"
+        android:textColor="@color/black_1a1a1a"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:text="更多"
+        android:textColor="@color/gray_2c2e30"
+        android:textSize="12sp"/>
+
+</RelativeLayout>

@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.haowen.HaowenFragment;
 import com.szss.androidapp.home.fragment.HomeFragment;
 import com.szss.androidapp.home.fragment.HomeImageFragment;
 import com.szss.androidapp.profile.fragment.ProfileFragment;
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity {
 					showFragment(1);
 					return true;
 				case R.id.navigation_haowen:
-					showFragment(1);
+					showFragment(3);
 					return true;
 				case R.id.navigation_profile:
 					showFragment(2);
@@ -65,6 +66,7 @@ public class MainActivity extends BaseActivity {
 		mFragments.add(new HomeFragment());
 		mFragments.add(new HomeImageFragment());
 		mFragments.add(new ProfileFragment());
+		mFragments.add(new HaowenFragment());
 	}
 
 	private void showFragment(int index) {

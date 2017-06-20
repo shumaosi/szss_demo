@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/all_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+
+        <com.szss.androidapp.view.RoundedImageView
+            android:id="@+id/card_style1_item_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image66"
+            app:corner_radius="2dp"/>
+
+        <TextView
+            android:id="@+id/card_style1_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/card_style1_item_image"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/card_style1_item_image"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="在家里玩转创意人像摄影 篇一：如何在家里用华为P10手机拍出梦幻人像"
+            android:textColor="@color/black_1a1a1a"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/card_style1_item_image"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/card_style1_item_image">
+
+            <com.szss.androidapp.view.RoundedImageView
+                android:id="@+id/card_style1_item_usericon"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/image10"
+                app:corner_radius="48dp"/>
+
+            <TextView
+                android:id="@+id/card_style1_item_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/card_style1_item_usericon"
+                android:text="点击杀冒险"
+                android:textColor="@color/gray_8e8e8e"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/card_style1_item_replynumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="327"
+                android:textColor="@color/gray_8e8e8e"
+                android:textSize="12sp"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/card_style1_item_image"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/gray_eeeeee"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

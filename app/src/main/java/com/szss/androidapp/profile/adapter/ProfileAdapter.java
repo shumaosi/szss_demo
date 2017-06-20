@@ -9,10 +9,11 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.BaseRecycleViewAdapter;
+import com.szss.androidapp.common.HorizontalListViewHolder;
+import com.szss.androidapp.common.SpaceViewHolder;
 import com.szss.androidapp.model.ProfileItemModel;
 import com.szss.androidapp.view.RoundedImageView;
-
-import java.util.ArrayList;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -23,7 +24,7 @@ import io.reactivex.disposables.Disposable;
  * Created by wuwei on 2017/6/16.
  */
 
-public class ProfileAdapter extends RecyclerView.Adapter {
+public class ProfileAdapter extends BaseRecycleViewAdapter {
 
 	public static final int TYPE_PROFILE_INFO = 1;
 	public static final int TYPE_SPACE = 2;
@@ -32,8 +33,6 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 	public static final int TYPE_NOTIFICATION = 5;
 	public static final int TYPE_MESSAGE = 6;
 
-
-	private ArrayList<ProfileItemModel> mData;
 	private ProfileActionClickListener mProfileActionClickListener;
 
 	@Override
@@ -43,11 +42,11 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 			View infoView = layoutInflater.inflate(R.layout.profileinfo_view, parent, false);
 			return new ProfileInfoViewHolder(infoView);
 		} else if (TYPE_SPACE == viewType) {
-			View view = layoutInflater.inflate(R.layout.profile_space_view, parent, false);
-			return new ProfileSpaceViewHolder(view);
+			View view = layoutInflater.inflate(R.layout.space_item, parent, false);
+			return new SpaceViewHolder(view);
 		} else if (TYPE_FAVORABLE == viewType) {
-			View view = layoutInflater.inflate(R.layout.profile_favorable_view, parent, false);
-			return new ProfileFavorable(view);
+			View view = layoutInflater.inflate(R.layout.horizontal_list_item, parent, false);
+			return new HorizontalListViewHolder(view);
 		} else {
 			View view = layoutInflater.inflate(R.layout.profile_imagetext_view, parent, false);
 			return new ProfileImageTextViewHolder(view);
@@ -90,13 +89,8 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 	}
 
 	@Override
-	public int getItemCount() {
-		return getDataList().size();
-	}
-
-	@Override
 	public int getItemViewType(int position) {
-		ProfileItemModel profileItemModel = mData.get(position);
+		ProfileItemModel profileItemModel = (ProfileItemModel) getDataList().get(position);
 		switch (profileItemModel.getType()) {
 			case profileInfo:
 				return TYPE_PROFILE_INFO;
@@ -115,18 +109,6 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 		}
 	}
 
-	public ArrayList getDataList() {
-		if (mData == null) {
-			mData = new ArrayList<>();
-		}
-		return mData;
-	}
-
-	public void addData(ArrayList<ProfileItemModel> list) {
-		getDataList().addAll(list);
-		notifyDataSetChanged();
-	}
-
 	private static class ProfileInfoViewHolder extends RecyclerView.ViewHolder {
 
 		private RoundedImageView icon;
@@ -139,21 +121,6 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 			name = (TextView) itemView.findViewById(R.id.profileinfo_view_name);
 			des = (TextView) itemView.findViewById(R.id.profileinfo_view_des);
 		}
-	}
-
-	private static class ProfileSpaceViewHolder extends RecyclerView.ViewHolder {
-
-		public ProfileSpaceViewHolder(View itemView) {
-			super(itemView);
-		}
-	}
-
-	private static class ProfileFavorable extends RecyclerView.ViewHolder {
-
-		public ProfileFavorable(View itemView) {
-			super(itemView);
-		}
-
 	}
 
 	private static class ProfileImageTextViewHolder extends RecyclerView.ViewHolder {
