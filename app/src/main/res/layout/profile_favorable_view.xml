@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_card_giftcard_black_24dp"/>
+            android:src="@drawable/ic_attach_money_black_24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_card_giftcard_black_24dp"/>
+            android:src="@drawable/ic_attach_money_black_24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_card_giftcard_black_24dp"/>
+            android:src="@drawable/ic_attach_money_black_24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_card_giftcard_black_24dp"/>
+            android:src="@drawable/ic_attach_money_black_24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_card_giftcard_black_24dp"/>
+            android:src="@drawable/ic_attach_money_black_24dp"/>
 
         <TextView
             android:layout_width="wrap_content"

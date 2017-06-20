@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home"/>
+        android:title="@string/title_home"
+        app:showAsAction="withText"/>
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/subject"/>
+        android:id="@+id/navigation_haojia"
+        android:icon="@drawable/ic_add_shopping_cart_black_24dp"
+        android:title="好价"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/navigation_haowu"
+        android:icon="@drawable/ic_redeem_black_24dp"
+        android:title="好物"
+        app:showAsAction="withText"
+        />
+
+    <item
+        android:id="@+id/navigation_haowen"
+        android:icon="@drawable/ic_description_black_24dp"
+        android:title="好文"
+        app:showAsAction="withText"/>
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_perm_identity_black_24dp"
-        android:title="@string/title_profile"/>
+        android:title="@string/title_profile"
+        app:showAsAction="withText"/>
 
 </menu>

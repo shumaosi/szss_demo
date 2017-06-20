@@ -27,8 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/theme_color_77bc1f"
         android:layout_gravity="bottom"
+        android:background="@color/gray_FAFAFA"
         app:itemIconTint="@drawable/tab_item_color_state"
         app:itemTextColor="@drawable/tab_item_color_state"
         app:menu="@menu/navigation"/>

@@ -2,6 +2,8 @@ package com.szss.androidapp.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -12,6 +14,7 @@ import com.szss.androidapp.home.fragment.HomeFragment;
 import com.szss.androidapp.home.fragment.HomeImageFragment;
 import com.szss.androidapp.profile.fragment.ProfileFragment;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
@@ -27,7 +30,13 @@ public class MainActivity extends BaseActivity {
 				case R.id.navigation_home:
 					showFragment(0);
 					return true;
-				case R.id.navigation_dashboard:
+				case R.id.navigation_haojia:
+					showFragment(1);
+					return true;
+				case R.id.navigation_haowu:
+					showFragment(1);
+					return true;
+				case R.id.navigation_haowen:
 					showFragment(1);
 					return true;
 				case R.id.navigation_profile:
@@ -45,6 +54,7 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.activity_main);
 		initSystemBarTint();
 		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+		disableShiftMode(navigation);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 		initFragments();
 		showFragment(0);
@@ -80,4 +90,25 @@ public class MainActivity extends BaseActivity {
 	protected boolean translucentStatusBar() {
 		return false;
 	}
+
+	public static void disableShiftMode(BottomNavigationView view) {
+		BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
+		try {
+			Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
+			shiftingMode.setAccessible(true);
+			shiftingMode.setBoolean(menuView, false);
+			shiftingMode.setAccessible(false);
+			for (int i = 0; i < menuView.getChildCount(); i++) {
+				BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
+				//noinspection RestrictedApi
+				item.setShiftingMode(false);
+				// set once again checked value, so view will be updated
+				//noinspection RestrictedApi
+				item.setChecked(item.getItemData().isChecked());
+			}
+		} catch (NoSuchFieldException e) {
+		} catch (IllegalAccessException e) {
+		}
+	}
+
 }
