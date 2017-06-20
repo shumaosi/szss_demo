@@ -7,7 +7,7 @@ package com.szss.androidapp.model;
 public class ProfileItemModel {
 
 	public enum ItemType {
-		profileInfo, space, setting, notification, message
+		profileInfo, space, favorable, setting, notification, message
 	}
 
 	private ItemType mType;

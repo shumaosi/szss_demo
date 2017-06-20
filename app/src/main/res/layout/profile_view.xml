@@ -10,18 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/theme_color_77bc1f"
-        android:paddingLeft="16dp"
         android:gravity="center_vertical"
-        android:textColor="@color/all_white"
+        android:paddingLeft="16dp"
         android:text="@string/title_profile"
+        android:textColor="@color/all_white"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/profile_view_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

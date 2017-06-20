@@ -1,6 +1,5 @@
 package com.szss.androidapp.profile.adapter;
 
-import android.support.v4.widget.Space;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.szss.androidapp.R;
-import com.szss.androidapp.action.ActionClickListener;
-import com.szss.androidapp.action.ActionName;
 import com.szss.androidapp.model.ProfileItemModel;
 import com.szss.androidapp.view.RoundedImageView;
 
@@ -30,9 +27,10 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 
 	public static final int TYPE_PROFILE_INFO = 1;
 	public static final int TYPE_SPACE = 2;
-	public static final int TYPE_SETTING = 3;
-	public static final int TYPE_NOTIFICATION = 4;
-	public static final int TYPE_MESSAGE = 5;
+	public static final int TYPE_FAVORABLE = 3;
+	public static final int TYPE_SETTING = 4;
+	public static final int TYPE_NOTIFICATION = 5;
+	public static final int TYPE_MESSAGE = 6;
 
 
 	private ArrayList<ProfileItemModel> mData;
@@ -47,6 +45,9 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 		} else if (TYPE_SPACE == viewType) {
 			View view = layoutInflater.inflate(R.layout.profile_space_view, parent, false);
 			return new ProfileSpaceViewHolder(view);
+		} else if (TYPE_FAVORABLE == viewType) {
+			View view = layoutInflater.inflate(R.layout.profile_favorable_view, parent, false);
+			return new ProfileFavorable(view);
 		} else {
 			View view = layoutInflater.inflate(R.layout.profile_imagetext_view, parent, false);
 			return new ProfileImageTextViewHolder(view);
@@ -101,6 +102,8 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 				return TYPE_PROFILE_INFO;
 			case space:
 				return TYPE_SPACE;
+			case favorable:
+				return TYPE_FAVORABLE;
 			case setting:
 				return TYPE_SETTING;
 			case notification:
@@ -143,6 +146,14 @@ public class ProfileAdapter extends RecyclerView.Adapter {
 		public ProfileSpaceViewHolder(View itemView) {
 			super(itemView);
 		}
+	}
+
+	private static class ProfileFavorable extends RecyclerView.ViewHolder {
+
+		public ProfileFavorable(View itemView) {
+			super(itemView);
+		}
+
 	}
 
 	private static class ProfileImageTextViewHolder extends RecyclerView.ViewHolder {

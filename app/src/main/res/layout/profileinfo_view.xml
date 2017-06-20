@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/all_white">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/all_white"
+              android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/profileinfo_view_infolayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/profileinfo_view_chevron_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_chevron_right"/>
 
         <com.szss.androidapp.view.RoundedImageView
             android:id="@+id/profileinfo_view_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@id/profileinfo_view_chevron_right"
             android:scaleType="centerCrop"
             android:src="@drawable/wuwei"
             app:corner_radius="48dp"/>
@@ -27,10 +41,9 @@
             android:layout_alignTop="@id/profileinfo_view_icon"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="2dp"
-            android:layout_toRightOf="@id/profileinfo_view_icon"
             android:text="wuwei"
             android:textColor="@color/black_222222"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -39,10 +52,137 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/profileinfo_view_name"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@id/profileinfo_view_icon"
             android:text="信息中心"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/gray_888888"/>
 
     </RelativeLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/profileinfo_view_purse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/profileinfo_view_goldcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textColor="@color/all_black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileinfo_view_goldcount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/gold"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/profileinfo_view_suiyingzicount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textColor="@color/all_black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileinfo_view_suiyingzicount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/sui_yingzi"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/profileinfo_view_jifengcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                android:textColor="@color/all_black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileinfo_view_jifengcount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/integral"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_style1"
+            android:gravity="center"
+            android:text="每日奖励"
+            android:textColor="@color/red_FF4141"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="14dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector_style1"
+            android:gravity="center"
+            android:text="签到"
+            android:textColor="@color/red_FF4141"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>
