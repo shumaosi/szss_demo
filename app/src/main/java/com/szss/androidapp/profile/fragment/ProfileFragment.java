@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.model.ProfileItemModel;
+import com.szss.androidapp.model.ProfileItem;
 import com.szss.androidapp.profile.adapter.ProfileAdapter;
 
 import java.util.ArrayList;
@@ -39,26 +39,26 @@ public class ProfileFragment extends Fragment implements ProfileAdapter.ProfileA
 	}
 
 	private void initData() {
-		ArrayList<ProfileItemModel> list = new ArrayList<>();
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.profileInfo));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.space));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.favorable));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.space));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.setting));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.notification));
-		list.add(new ProfileItemModel(ProfileItemModel.ItemType.message));
+		ArrayList<ProfileItem> list = new ArrayList<>();
+		list.add(new ProfileItem(ProfileItem.ItemType.profileInfo));
+		list.add(new ProfileItem(ProfileItem.ItemType.space));
+		list.add(new ProfileItem(ProfileItem.ItemType.favorable));
+		list.add(new ProfileItem(ProfileItem.ItemType.space));
+		list.add(new ProfileItem(ProfileItem.ItemType.setting));
+		list.add(new ProfileItem(ProfileItem.ItemType.notification));
+		list.add(new ProfileItem(ProfileItem.ItemType.message));
+		list.add(new ProfileItem(ProfileItem.ItemType.setting));
+		list.add(new ProfileItem(ProfileItem.ItemType.notification));
+		list.add(new ProfileItem(ProfileItem.ItemType.message));
+		list.add(new ProfileItem(ProfileItem.ItemType.setting));
+		list.add(new ProfileItem(ProfileItem.ItemType.notification));
+		list.add(new ProfileItem(ProfileItem.ItemType.message));
+		list.add(new ProfileItem(ProfileItem.ItemType.setting));
+		list.add(new ProfileItem(ProfileItem.ItemType.notification));
+		list.add(new ProfileItem(ProfileItem.ItemType.message));
+		list.add(new ProfileItem(ProfileItem.ItemType.setting));
+		list.add(new ProfileItem(ProfileItem.ItemType.notification));
+		list.add(new ProfileItem(ProfileItem.ItemType.message));
 
 		mProfileAdapter.addData(list);
 	}

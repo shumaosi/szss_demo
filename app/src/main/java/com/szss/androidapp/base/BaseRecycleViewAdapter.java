@@ -3,8 +3,6 @@ package com.szss.androidapp.base;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.szss.androidapp.model.ProfileItemModel;
-
 import java.util.ArrayList;
 
 /**
@@ -29,6 +27,10 @@ public class BaseRecycleViewAdapter extends RecyclerView.Adapter {
 	@Override
 	public int getItemCount() {
 		return getDataList().size();
+	}
+
+	public Object getItem(int position) {
+		return getDataList().get(position);
 	}
 
 	public ArrayList getDataList() {

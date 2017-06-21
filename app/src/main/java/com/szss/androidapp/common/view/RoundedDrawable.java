@@ -1,4 +1,4 @@
-package com.szss.androidapp.view;
+package com.szss.androidapp.common.view;
 
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;

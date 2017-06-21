@@ -1,4 +1,4 @@
-package com.szss.androidapp.common;
+package com.szss.androidapp.common.viewholder;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +26,7 @@ public class BannerViewHolder extends RecyclerView.ViewHolder {
 
 	public void bindData() {
 		mBanner.setImageLoader(new ImageLoader() {
+			private static final long serialVersionUID = -6104274223673485961L;
 			@Override
 			public void displayImage(Context context, Object path, ImageView imageView) {
 				imageView.setImageResource((int) path);

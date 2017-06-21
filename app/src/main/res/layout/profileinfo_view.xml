@@ -21,7 +21,7 @@
             android:layout_marginRight="15dp"
             android:src="@drawable/ic_chevron_right"/>
 
-        <com.szss.androidapp.view.RoundedImageView
+        <com.szss.androidapp.common.view.RoundedImageView
             android:id="@+id/profileinfo_view_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"

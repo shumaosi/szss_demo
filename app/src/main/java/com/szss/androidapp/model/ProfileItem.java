@@ -4,7 +4,7 @@ package com.szss.androidapp.model;
  * Created by wuwei on 2017/6/16.
  */
 
-public class ProfileItemModel {
+public class ProfileItem {
 
 	public enum ItemType {
 		profileInfo, space, favorable, setting, notification, message
@@ -12,7 +12,7 @@ public class ProfileItemModel {
 
 	private ItemType mType;
 
-	public ProfileItemModel(ItemType itemType) {
+	public ProfileItem(ItemType itemType) {
 		this.mType = itemType;
 	}
 

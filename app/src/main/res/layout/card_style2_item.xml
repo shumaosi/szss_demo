@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/all_white">
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:background="@color/all_white"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="1dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,24 +21,23 @@
 
         <com.szss.androidapp.common.view.RoundedImageView
             android:id="@+id/card_style2_item_photo"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/image66"
             app:corner_radius="2dp"/>
 
         <TextView
-            android:id="@+id/card_style1_item_title"
+            android:id="@+id/card_style2_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/card_style2_item_photo"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/card_style2_item_photo"
+            android:layout_below="@id/card_style2_item_photo"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/black_1a1a1a"
@@ -39,32 +47,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/card_style2_item_photo"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_toRightOf="@id/card_style2_item_photo">
-
-            <com.szss.androidapp.common.view.RoundedImageView
-                android:id="@+id/card_style1_item_usericon"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_centerVertical="true"
-                android:scaleType="centerCrop"
-                app:corner_radius="48dp"/>
+            android:layout_below="@id/card_style2_item_title"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="15dp">
 
             <TextView
-                android:id="@+id/card_style1_item_username"
+                android:id="@+id/card_style2_item_topictype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/card_style1_item_usericon"
                 android:textColor="@color/gray_8e8e8e"
                 android:textSize="12sp"/>
 
             <TextView
-                android:id="@+id/card_style1_item_viewnumber"
+                android:id="@+id/card_style2_item_viewnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -72,30 +70,30 @@
                 android:textSize="12sp"/>
 
             <ImageView
-                android:id="@+id/card_style1_item_viewicon"
+                android:id="@+id/card_style2_item_viewicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@id/card_style1_item_viewnumber"
+                android:layout_toLeftOf="@id/card_style2_item_viewnumber"
                 android:src="@drawable/ic_view"/>
 
             <TextView
-                android:id="@+id/card_style1_item_replynumber"
+                android:id="@+id/card_style2_item_replynumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@id/card_style1_item_viewicon"
+                android:layout_toLeftOf="@id/card_style2_item_viewicon"
+                android:text="327"
                 android:textColor="@color/gray_8e8e8e"
                 android:textSize="12sp"/>
 
             <ImageView
-                android:id="@+id/card_style1_item_replyicon"
+                android:id="@+id/card_style2_item_replyicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@id/card_style1_item_replynumber"
+                android:layout_toLeftOf="@id/card_style2_item_replynumber"
                 android:src="@drawable/ic_reply"/>
-
 
         </RelativeLayout>
 
@@ -109,4 +107,4 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+</android.support.v7.widget.CardView>

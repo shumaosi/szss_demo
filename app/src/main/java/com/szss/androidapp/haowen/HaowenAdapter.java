@@ -7,12 +7,18 @@ import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.BaseRecycleViewAdapter;
-import com.szss.androidapp.common.BannerViewHolder;
-import com.szss.androidapp.common.CardStyle1ViewHolder;
-import com.szss.androidapp.common.HorizontalListViewHolder;
-import com.szss.androidapp.common.SpaceViewHolder;
-import com.szss.androidapp.common.TitleViewHolder;
-import com.szss.androidapp.model.HaowenItemModel;
+import com.szss.androidapp.common.model.BannerModel;
+import com.szss.androidapp.common.model.CardStyle1Model;
+import com.szss.androidapp.common.model.CardStyle2Model;
+import com.szss.androidapp.common.model.HorizontalListViewModel;
+import com.szss.androidapp.common.model.TitleModel;
+import com.szss.androidapp.common.viewholder.BannerViewHolder;
+import com.szss.androidapp.common.viewholder.CardStyle1ViewHolder;
+import com.szss.androidapp.common.viewholder.CardStyle2ViewHolder;
+import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
+import com.szss.androidapp.common.viewholder.SpaceViewHolder;
+import com.szss.androidapp.common.viewholder.TitleViewHolder;
+import com.szss.androidapp.model.HaowenItem;
 
 /**
  * Created by wuwei on 2017/6/20.
@@ -21,10 +27,11 @@ import com.szss.androidapp.model.HaowenItemModel;
 public class HaowenAdapter extends BaseRecycleViewAdapter {
 
 	public static int TYPE_BANNER = 0;
-	public static int TYPE_HUATI = 1;
+	public static int TYPE_HORIZONTALLISTVIEW = 1;
 	public static int TYPE_SPACE = 2;
 	public static int TYPE_TITLE = 3;
 	public static int TYPE_CARDSTYLE1 = 4;
+	public static int TYPE_CARDSTYLE2 = 5;
 
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -32,7 +39,7 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 		if (viewType == TYPE_BANNER) {
 			View view = layoutInflater.inflate(R.layout.banner_item, parent, false);
 			return new BannerViewHolder(view);
-		} else if (viewType == TYPE_HUATI) {
+		} else if (viewType == TYPE_HORIZONTALLISTVIEW) {
 			View view = layoutInflater.inflate(R.layout.horizontal_list_item, parent, false);
 			return new HorizontalListViewHolder(view);
 		} else if (viewType == TYPE_SPACE) {
@@ -44,6 +51,9 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 		} else if (viewType == TYPE_CARDSTYLE1) {
 			View view = layoutInflater.inflate(R.layout.card_style1_item, parent, false);
 			return new CardStyle1ViewHolder(view);
+		} else if (viewType == TYPE_CARDSTYLE2) {
+			View view = layoutInflater.inflate(R.layout.card_style2_item, parent, false);
+			return new CardStyle2ViewHolder(view);
 		}
 		return null;
 	}
@@ -53,25 +63,28 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 		int viewType = getItemViewType(position);
 		if (viewType == TYPE_BANNER) {
 			((BannerViewHolder) holder).bindData();
+		} else if (viewType == TYPE_TITLE) {
+			((TitleViewHolder) holder).bindData((TitleModel) getItem(position));
+		} else if (viewType == TYPE_CARDSTYLE1) {
+			((CardStyle1ViewHolder) holder).bindData((CardStyle1Model) getItem(position));
+		} else if (viewType == TYPE_CARDSTYLE2) {
+			((CardStyle2ViewHolder) holder).bindData((CardStyle2Model) getItem(position));
 		}
 	}
 
 	@Override
 	public int getItemViewType(int position) {
-		HaowenItemModel haowenItemModel = (HaowenItemModel) getDataList().get(position);
-		switch (haowenItemModel.getType()) {
-			case banner:
-				return TYPE_BANNER;
-			case huati:
-				return TYPE_HUATI;
-			case space:
-				return TYPE_SPACE;
-			case title:
-				return TYPE_TITLE;
-			case imageText:
-				return TYPE_CARDSTYLE1;
-			default:
-				return TYPE_SPACE;
+		Object object = getDataList().get(position);
+		if (object instanceof BannerModel) {
+			return TYPE_BANNER;
+		} else if (object instanceof HorizontalListViewModel) {
+			return TYPE_HORIZONTALLISTVIEW;
+		} else if (object instanceof TitleModel) {
+			return TYPE_TITLE;
+		} else if (object instanceof CardStyle1Model) {
+			return TYPE_CARDSTYLE1;
+		} else {
+			return TYPE_CARDSTYLE2;
 		}
 	}
 

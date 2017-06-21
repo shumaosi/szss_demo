@@ -1,4 +1,4 @@
-package com.szss.androidapp.common;
+package com.szss.androidapp.common.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

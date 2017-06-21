@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.BaseRecycleViewAdapter;
-import com.szss.androidapp.common.HorizontalListViewHolder;
-import com.szss.androidapp.common.SpaceViewHolder;
-import com.szss.androidapp.model.ProfileItemModel;
-import com.szss.androidapp.view.RoundedImageView;
+import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
+import com.szss.androidapp.common.viewholder.SpaceViewHolder;
+import com.szss.androidapp.model.ProfileItem;
+import com.szss.androidapp.common.view.RoundedImageView;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -90,8 +90,8 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 
 	@Override
 	public int getItemViewType(int position) {
-		ProfileItemModel profileItemModel = (ProfileItemModel) getDataList().get(position);
-		switch (profileItemModel.getType()) {
+		ProfileItem profileItem = (ProfileItem) getDataList().get(position);
+		switch (profileItem.getType()) {
 			case profileInfo:
 				return TYPE_PROFILE_INFO;
 			case space:

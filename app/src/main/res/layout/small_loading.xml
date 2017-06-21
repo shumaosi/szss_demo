@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.szss.androidapp.view.LoadingView xmlns:android="http://schemas.android.com/apk/res/android"
-                                      xmlns:app="http://schemas.android.com/apk/res-auto"
-                                      android:layout_width="match_parent"
-                                      android:layout_height="wrap_content"
-                                      android:orientation="horizontal"
-                                      app:loadingStyle="SMALL_WITH_TEXT">
+<com.szss.androidapp.common.view.LoadingView xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:orientation="horizontal"
+                                             app:loadingStyle="SMALL_WITH_TEXT">
 
-</com.szss.androidapp.view.LoadingView>
+</com.szss.androidapp.common.view.LoadingView>

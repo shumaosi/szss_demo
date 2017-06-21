@@ -4,15 +4,15 @@ package com.szss.androidapp.model;
  * Created by wuwei on 2017/6/16.
  */
 
-public class HaowenItemModel {
+public class HaowenItem {
 
 	public enum ItemType {
-		banner, huati, space, title, imageText
+		banner, huati, space, title, cardStyle1, cardStyle2
 	}
 
 	private ItemType mType;
 
-	public HaowenItemModel(ItemType itemType) {
+	public HaowenItem(ItemType itemType) {
 		this.mType = itemType;
 	}
 
