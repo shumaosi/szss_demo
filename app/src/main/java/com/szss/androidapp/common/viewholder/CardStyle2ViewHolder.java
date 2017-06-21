@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.WebActivity;
 import com.szss.androidapp.common.model.CardStyle2Model;
 import com.szss.androidapp.common.view.RoundedImageView;
 
@@ -33,12 +34,18 @@ public class CardStyle2ViewHolder extends RecyclerView.ViewHolder {
 		mCardViewNumber = (TextView) itemView.findViewById(R.id.card_style2_item_viewnumber);
 	}
 
-	public void bindData(CardStyle2Model cardStyle2Model) {
+	public void bindData(final CardStyle2Model cardStyle2Model) {
 		mCardTitle.setText(cardStyle2Model.getTitle());
 		mCardType.setText(cardStyle2Model.getTopicType());
 		mCardViewNumber.setText(cardStyle2Model.getViewNumber());
 		mCardReplyNumber.setText(cardStyle2Model.getReplyNumber());
 		Glide.with(mContext).load(cardStyle2Model.getPhotoUrl()).error(R.drawable.image66).into(mCardPhoto);
+		itemView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				WebActivity.runActivity(itemView.getContext(), cardStyle2Model.getTitle(), cardStyle2Model.getPhotoUrl());
+			}
+		});
 	}
 
 }

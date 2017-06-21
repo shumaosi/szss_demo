@@ -12,6 +12,7 @@ import com.lzy.ninegrid.ImageInfo;
 import com.lzy.ninegrid.NineGridView;
 import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.WebActivity;
 import com.szss.androidapp.model.NewsModel;
 import com.szss.androidapp.util.Utils;
 
@@ -55,9 +56,9 @@ public class HomeNewsAdapter extends RecyclerView.Adapter {
 	}
 
 	@Override
-	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+	public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
 		if (TYPE_NEWS == getItemViewType(position)) {
-			NewsModel newsModel = (NewsModel) mDatas.get(position);
+			final NewsModel newsModel = (NewsModel) mDatas.get(position);
 			NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
 			newsViewHolder.title.setText(newsModel.desc);
 			newsViewHolder.content.setText(newsModel.desc);
@@ -73,6 +74,12 @@ public class HomeNewsAdapter extends RecyclerView.Adapter {
 			}
 			newsViewHolder.nineGridView.setSingleImageSize(Utils.getScreenSize(holder.itemView.getContext()).x);
 			newsViewHolder.nineGridView.setAdapter(new NineGridViewClickAdapter(newsViewHolder.itemView.getContext(), imageInfos));
+			holder.itemView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					WebActivity.runActivity(holder.itemView.getContext(), newsModel.desc, newsModel.url);
+				}
+			});
 		} else {
 
 		}

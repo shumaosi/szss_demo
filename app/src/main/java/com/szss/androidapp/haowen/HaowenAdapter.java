@@ -11,11 +11,13 @@ import com.szss.androidapp.common.model.BannerModel;
 import com.szss.androidapp.common.model.CardStyle1Model;
 import com.szss.androidapp.common.model.CardStyle2Model;
 import com.szss.androidapp.common.model.HorizontalListViewModel;
+import com.szss.androidapp.common.model.JiXuanModel;
 import com.szss.androidapp.common.model.TitleModel;
 import com.szss.androidapp.common.viewholder.BannerViewHolder;
 import com.szss.androidapp.common.viewholder.CardStyle1ViewHolder;
 import com.szss.androidapp.common.viewholder.CardStyle2ViewHolder;
 import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
+import com.szss.androidapp.common.viewholder.JiXuanViewHolder;
 import com.szss.androidapp.common.viewholder.SpaceViewHolder;
 import com.szss.androidapp.common.viewholder.TitleViewHolder;
 import com.szss.androidapp.model.HaowenItem;
@@ -32,6 +34,7 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 	public static int TYPE_TITLE = 3;
 	public static int TYPE_CARDSTYLE1 = 4;
 	public static int TYPE_CARDSTYLE2 = 5;
+	public static int TYPE_JIXUAN = 6;
 
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -54,6 +57,9 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 		} else if (viewType == TYPE_CARDSTYLE2) {
 			View view = layoutInflater.inflate(R.layout.card_style2_item, parent, false);
 			return new CardStyle2ViewHolder(view);
+		} else if (viewType == TYPE_JIXUAN) {
+			View view = layoutInflater.inflate(R.layout.jixuan_item, parent, false);
+			return new JiXuanViewHolder(view);
 		}
 		return null;
 	}
@@ -69,6 +75,8 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 			((CardStyle1ViewHolder) holder).bindData((CardStyle1Model) getItem(position));
 		} else if (viewType == TYPE_CARDSTYLE2) {
 			((CardStyle2ViewHolder) holder).bindData((CardStyle2Model) getItem(position));
+		} else if (viewType == TYPE_JIXUAN) {
+			((JiXuanViewHolder) holder).bindData((JiXuanModel) getItem(position));
 		}
 	}
 
@@ -83,6 +91,8 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 			return TYPE_TITLE;
 		} else if (object instanceof CardStyle1Model) {
 			return TYPE_CARDSTYLE1;
+		} else if (object instanceof JiXuanModel) {
+			return TYPE_JIXUAN;
 		} else {
 			return TYPE_CARDSTYLE2;
 		}

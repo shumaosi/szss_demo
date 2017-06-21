@@ -14,6 +14,7 @@ import com.szss.androidapp.common.model.BannerModel;
 import com.szss.androidapp.common.model.CardStyle1Model;
 import com.szss.androidapp.common.model.CardStyle2Model;
 import com.szss.androidapp.common.model.HorizontalListViewModel;
+import com.szss.androidapp.common.model.JiXuanModel;
 import com.szss.androidapp.common.model.TitleModel;
 import com.szss.androidapp.model.HaowenItem;
 
@@ -54,6 +55,8 @@ public class HaowenFragment extends Fragment {
 		ArrayList<Object> list = new ArrayList<>();
 		list.add(new BannerModel());
 		list.add(new HorizontalListViewModel());
+		list.add(new TitleModel("值精选", false));
+		list.add(new JiXuanModel());
 		list.add(new TitleModel("今日热门", true));
 		list.add(new CardStyle1Model("https://b-ssl.duitang.com/uploads/item/201512/25/20151225094712_aFfvC.thumb.700_0.jpeg", "吃遍全国的54总特产牛肉干，告诉你那些值得回购", "http://img.zcool.cn/community/011fe955d9424a32f875a132e0173a.jpg", "魔都食鉴局", "609", "2.8k"));
 		list.add(new CardStyle1Model("http://www.doodoo.ru/uploads/posts/2012-04/prikoly-na-fotax-37.jpg",

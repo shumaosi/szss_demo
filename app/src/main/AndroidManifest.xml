@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".base.MainActivity"
+            android:name=".guide.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".guide.LauncherActivity"
+            android:name=".base.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
@@ -31,6 +31,9 @@
         </activity>
         <activity
             android:name=".guide.EntryActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".base.WebActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

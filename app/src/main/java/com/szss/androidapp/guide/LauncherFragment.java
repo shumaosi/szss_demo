@@ -41,9 +41,9 @@ public class LauncherFragment extends Fragment {
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		if (mPage == 0) {
-			mImageView.setImageResource(R.drawable.launch_page6);
+			mImageView.setImageResource(R.drawable.image55);
 		} else if (mPage == 1) {
-			mImageView.setImageResource(R.drawable.launch_page2);
+			mImageView.setImageResource(R.drawable.launch_page8);
 		} else if (mPage == 2) {
 			mImageView.setImageResource(R.drawable.launch_page5);
 		} else {
