@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_style3_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/all_white"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="1dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <com.szss.androidapp.common.view.RoundedImageView
+            android:id="@+id/card_style3_item_photo"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image11"
+            app:corner_radius="2dp"/>
+
+        <TextView
+            android:id="@+id/card_style3_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_style3_item_photo"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="历史最低价：loz 梨汁 微钻 积木 iphone 小黄人电影"
+            android:textColor="@color/black_1a1a1a"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/card_style3_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_style3_item_title"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="售罄 | 2元 (5元，下单4折)"
+            android:textColor="@color/gray_9c9c9c"
+            android:textSize="13sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/card_style3_item_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="亚马逊中国"
+                android:textColor="@color/gray_8e8e8e"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/card_style3_item_viewnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="52"
+                android:textColor="@color/gray_8e8e8e"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:id="@+id/card_style3_item_viewicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/card_style3_item_viewnumber"
+                android:src="@drawable/ic_view"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

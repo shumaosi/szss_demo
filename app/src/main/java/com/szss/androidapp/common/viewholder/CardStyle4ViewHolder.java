@@ -6,13 +6,13 @@ import android.widget.ImageView;
 
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.WebActivity;
-import com.szss.androidapp.common.model.JiXuanModel;
+import com.szss.androidapp.common.model.CardStyle4Model;
 
 /**
  * Created by wuwei on 2017/6/20.
  */
 
-public class JiXuanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class CardStyle4ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 	private ImageView mImageView1;
 	private ImageView mImageView2;
@@ -24,7 +24,7 @@ public class JiXuanViewHolder extends RecyclerView.ViewHolder implements View.On
 	private ImageView mImageView8;
 
 
-	public JiXuanViewHolder(View itemView) {
+	public CardStyle4ViewHolder(View itemView) {
 		super(itemView);
 		mImageView1 = (ImageView) itemView.findViewById(R.id.jixuan_item_image1);
 		mImageView2 = (ImageView) itemView.findViewById(R.id.jixuan_item_image2);
@@ -36,7 +36,7 @@ public class JiXuanViewHolder extends RecyclerView.ViewHolder implements View.On
 		mImageView8 = (ImageView) itemView.findViewById(R.id.jixuan_item_image8);
 	}
 
-	public void bindData(JiXuanModel jiXuanModel) {
+	public void bindData(CardStyle4Model cardStyle4Model) {
 		mImageView1.setOnClickListener(this);
 		mImageView2.setOnClickListener(this);
 		mImageView3.setOnClickListener(this);

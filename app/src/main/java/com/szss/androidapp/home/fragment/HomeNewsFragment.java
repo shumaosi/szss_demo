@@ -27,6 +27,7 @@ import com.szss.androidapp.util.GlideImageLoader;
 import com.szss.androidapp.util.RecyclerViewOnScrollListener;
 import com.szss.androidapp.util.Urls;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -77,7 +78,7 @@ public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnR
 						List<NewsModel> results = response.body().results;
 						if (results != null) {
 							currentPage = 2;
-							mHomeNewsAdapter.addDatas(results);
+							mHomeNewsAdapter.addData(results);
 						}
 					}
 
@@ -110,7 +111,7 @@ public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnR
 						List<NewsModel> results = response.body().results;
 						if (results != null && results.size() > 0) {
 							currentPage++;
-							mHomeNewsAdapter.addDatas(results);
+							mHomeNewsAdapter.addData(results);
 						}
 					}
 

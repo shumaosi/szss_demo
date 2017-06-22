@@ -1,5 +1,6 @@
 package com.szss.androidapp.profile.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.szss.androidapp.R;
+import com.szss.androidapp.action.ActionName;
 import com.szss.androidapp.base.BaseRecycleViewAdapter;
 import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
 import com.szss.androidapp.common.viewholder.SpaceViewHolder;
 import com.szss.androidapp.model.ProfileItem;
 import com.szss.androidapp.common.view.RoundedImageView;
+import com.szss.androidapp.util.GlideImageLoader;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -63,26 +68,9 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 		} else if (itemType == TYPE_PROFILE_INFO) {
 
 		}
-		RxView.clicks(holder.itemView).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new Observer<Object>() {
+		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onSubscribe(@NonNull Disposable d) {
-
-			}
-
-			@Override
-			public void onNext(@NonNull Object o) {
-				if (mProfileActionClickListener != null) {
-					mProfileActionClickListener.profileActionClick(itemType);
-				}
-			}
-
-			@Override
-			public void onError(@NonNull Throwable e) {
-
-			}
-
-			@Override
-			public void onComplete() {
+			public void onClick(View v) {
 
 			}
 		});
@@ -109,7 +97,7 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 		}
 	}
 
-	private static class ProfileInfoViewHolder extends RecyclerView.ViewHolder {
+	private class ProfileInfoViewHolder extends RecyclerView.ViewHolder {
 
 		private RoundedImageView icon;
 		private TextView name;
@@ -120,7 +108,23 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 			icon = (RoundedImageView) itemView.findViewById(R.id.profileinfo_view_icon);
 			name = (TextView) itemView.findViewById(R.id.profileinfo_view_name);
 			des = (TextView) itemView.findViewById(R.id.profileinfo_view_des);
+			icon.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if (mProfileActionClickListener != null) {
+						mProfileActionClickListener.profileActionClick(ActionName.ProfilePage_UserInfoIconClickAction, icon);
+					}
+				}
+			});
 		}
+	}
+
+	private void bindProfileInfoViewHodler(final ProfileInfoViewHolder profileInfoViewHolder) {
+		profileInfoViewHolder.icon.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+			}
+		});
 	}
 
 	private static class ProfileImageTextViewHolder extends RecyclerView.ViewHolder {
@@ -165,7 +169,7 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 	}
 
 	public interface ProfileActionClickListener {
-		void profileActionClick(int viewType);
+		void profileActionClick(ActionName actionName, View view);
 	}
 
 }

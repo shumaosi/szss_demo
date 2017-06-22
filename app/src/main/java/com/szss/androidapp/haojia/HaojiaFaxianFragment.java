@@ -1,4 +1,4 @@
-package com.szss.androidapp.home.fragment;
+package com.szss.androidapp.haojia;
 
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -11,25 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.home.adapter.HomeImageAdapter;
+import com.szss.androidapp.common.model.CardStyle3Model;
 import com.szss.androidapp.util.DensityUtil;
 
+import java.util.ArrayList;
+
 /**
- * Created by wuwei on 2017/6/14.
+ * Created by wuwei on 2017/6/22.
  */
 
-public class HomeImageFragment extends Fragment {
+public class HaojiaFaxianFragment extends Fragment {
 
 	private RecyclerView mRecyclerView;
+	private HaojiaFaxianAdapter mHaojiaFaxianAdapter;
+	private GridLayoutManager mGridLayoutManager;
 
-	public static HomeImageFragment newInstance() {
-		HomeImageFragment homeImageFragment = new HomeImageFragment();
-		return homeImageFragment;
-	}
-
+	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.swiperefresh_fragment, container, false);
+		View view = inflater.inflate(R.layout.haojia_faxian_fragment_view, container, false);
 		mRecyclerView = (RecyclerView) view.findViewById(R.id.refreshLayout_recyclerview);
 		return view;
 	}
@@ -37,36 +37,40 @@ public class HomeImageFragment extends Fragment {
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		initRecyclerView();
+		initRecylerView();
 	}
 
-	private void initRecyclerView() {
-		final HomeImageAdapter homeImageAdapter = new HomeImageAdapter();
-		GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
-		final int spacing = DensityUtil.dip2px(getActivity(), 4);
-		mRecyclerView.setLayoutManager(gridLayoutManager);
+	private void initRecylerView() {
+		mHaojiaFaxianAdapter = new HaojiaFaxianAdapter();
+		mGridLayoutManager = new GridLayoutManager(getActivity(), CardStyle3Model.ROW_NUMBER);
+		final int spacing = DensityUtil.dip2px(getActivity(), CardStyle3Model.CARD_MARGING);
+		mRecyclerView.setLayoutManager(mGridLayoutManager);
+		mRecyclerView.setAdapter(mHaojiaFaxianAdapter);
 		mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
 			@Override
 			public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
 				int position = parent.getChildAdapterPosition(view);
 				outRect.top = spacing;
-				switch (position % 3) {
+				switch (position % CardStyle3Model.ROW_NUMBER) {
 					case 0:
 						outRect.left = spacing;
 						outRect.right = spacing / 2;
 						break;
 					case 1:
 						outRect.left = spacing / 2;
-						outRect.right = spacing / 2;
-						break;
-					case 2:
-						outRect.left = spacing / 2;
 						outRect.right = spacing;
 						break;
 				}
 			}
 		});
-		mRecyclerView.setAdapter(homeImageAdapter);
+		ArrayList list = new ArrayList();
+		list.add(new CardStyle3Model());
+		list.add(new CardStyle3Model());
+		list.add(new CardStyle3Model());
+		list.add(new CardStyle3Model());
+		list.add(new CardStyle3Model());
+		mHaojiaFaxianAdapter.addData(list);
 	}
+
 
 }

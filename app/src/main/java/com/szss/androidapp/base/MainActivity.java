@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.haojia.HaojiaFragment;
 import com.szss.androidapp.haowen.HaowenFragment;
 import com.szss.androidapp.home.fragment.HomeFragment;
 import com.szss.androidapp.home.fragment.HomeImageFragment;
@@ -35,13 +36,13 @@ public class MainActivity extends BaseActivity {
 					showFragment(1);
 					return true;
 				case R.id.navigation_haowu:
-					showFragment(1);
+					showFragment(2);
 					return true;
 				case R.id.navigation_haowen:
 					showFragment(3);
 					return true;
 				case R.id.navigation_profile:
-					showFragment(2);
+					showFragment(4);
 					return true;
 			}
 			return false;
@@ -64,9 +65,10 @@ public class MainActivity extends BaseActivity {
 	private void initFragments() {
 		mFragments = new ArrayList<>();
 		mFragments.add(new HomeFragment());
+		mFragments.add(new HaojiaFragment());
 		mFragments.add(new HomeImageFragment());
-		mFragments.add(new ProfileFragment());
 		mFragments.add(new HaowenFragment());
+		mFragments.add(new ProfileFragment());
 	}
 
 	private void showFragment(int index) {
@@ -93,6 +95,7 @@ public class MainActivity extends BaseActivity {
 		return false;
 	}
 
+	// 固定bottom navigationmenu
 	public static void disableShiftMode(BottomNavigationView view) {
 		BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
 		try {

@@ -1,4 +1,4 @@
-package com.szss.androidapp.haowen;
+package com.szss.androidapp.haojia;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,28 +11,29 @@ import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
 import com.szss.androidapp.common.model.BannerModel;
-import com.szss.androidapp.common.model.CardStyle1Model;
 import com.szss.androidapp.common.model.CardStyle2Model;
+import com.szss.androidapp.common.model.CardStyle5Model;
 import com.szss.androidapp.common.model.HorizontalListViewModel;
-import com.szss.androidapp.common.model.CardStyle4Model;
-import com.szss.androidapp.common.model.TitleModel;
+import com.szss.androidapp.common.model.SpaceModel;
+import com.szss.androidapp.haowen.HaowenAdapter;
 
 import java.util.ArrayList;
 
 /**
- * Created by wuwei on 2017/6/20.
+ * Created by wuwei on 2017/6/22.
  */
 
-public class HaowenFragment extends Fragment {
+public class HaojiaJinxuanFragment extends Fragment {
 
 	private RecyclerView mRecyclerView;
 	private HaowenAdapter mHaowenAdapter;
 	private LinearLayoutManager mLinearLayoutManager;
 
+	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.main_fragment, container, false);
-		mRecyclerView = (RecyclerView) view.findViewById(R.id.main_recyclerview);
+		View view = inflater.inflate(R.layout.swiperefresh_fragment, container, false);
+		mRecyclerView = (RecyclerView) view.findViewById(R.id.refreshLayout_recyclerview);
 		return view;
 	}
 
@@ -44,39 +45,20 @@ public class HaowenFragment extends Fragment {
 	}
 
 	private void initRecyclerView() {
-		mHaowenAdapter = new HaowenAdapter();
 		mLinearLayoutManager = new LinearLayoutManager(getContext());
+		mHaowenAdapter = new HaowenAdapter();
 		mRecyclerView.setLayoutManager(mLinearLayoutManager);
 		mRecyclerView.setAdapter(mHaowenAdapter);
 	}
 
 	private void initData() {
-		ArrayList<Object> list = new ArrayList<>();
+		ArrayList list = new ArrayList();
 		list.add(new BannerModel());
 		list.add(new HorizontalListViewModel());
-		list.add(new TitleModel("值精选", false));
-		list.add(new CardStyle4Model());
-		list.add(new TitleModel("今日热门", true));
-		list.add(new CardStyle1Model("https://b-ssl.duitang.com/uploads/item/201512/25/20151225094712_aFfvC.thumb.700_0.jpeg", "吃遍全国的54总特产牛肉干，告诉你那些值得回购", "http://img.zcool.cn/community/011fe955d9424a32f875a132e0173a.jpg", "魔都食鉴局", "609", "2.8k"));
-		list.add(new CardStyle1Model("http://www.doodoo.ru/uploads/posts/2012-04/prikoly-na-fotax-37.jpg",
-				"揭开\"神油\"遮丑布，到底符合什么标准才能好机油",
-				"http://img1.cache.netease.com/catchpic/0/03/03917B3BBD142DA8D7E9BAB241C75366.jpg",
-				"汽车奇谈高小强",
-				"86",
-				"248"));
-		list.add(new CardStyle1Model("http://img.cheshi-img.com/product/1_1024/p/35300/35372/52e0a9823af8d.jpg",
-				"一个iphone老用户的MI小米6手机体检",
-				"http://pic.nipic.com/2007-12-06/2007126145745340_2.jpg",
-				"cxr83",
-				"137",
-				"60"));
-		list.add(new CardStyle1Model("http://my.3zitie.cn/shop/2015/2015316/img/2015031609284231824.jpg",
-				"移动系统跟我走，windows to go 移动平台制作分享",
-				"http://c.hiphotos.baidu.com/zhidao/pic/item/4afbfbedab64034f0afe7479afc379310a551d99.jpg",
-				"Dean 喂不饱的够",
-				"10",
-				"173"));
-		list.add(new TitleModel("好文推荐", false));
+		list.add(new HorizontalListViewModel());
+		list.add(new SpaceModel());
+		list.add(new CardStyle5Model());
+		list.add(new SpaceModel());
 		list.add(new CardStyle2Model("http://s15.sinaimg.cn/middle/6cfc958ft9846c34bee2e&690",
 				"单色却不单调 - 小米24寸90分旅行箱晒单", "#晒物 #拉杆箱", "4", "1"));
 		list.add(new CardStyle2Model("http://www.pp3.cn/uploads/201403/1386294780270.jpg",

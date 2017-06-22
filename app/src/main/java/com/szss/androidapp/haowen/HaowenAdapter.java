@@ -10,17 +10,18 @@ import com.szss.androidapp.base.BaseRecycleViewAdapter;
 import com.szss.androidapp.common.model.BannerModel;
 import com.szss.androidapp.common.model.CardStyle1Model;
 import com.szss.androidapp.common.model.CardStyle2Model;
+import com.szss.androidapp.common.model.CardStyle5Model;
 import com.szss.androidapp.common.model.HorizontalListViewModel;
-import com.szss.androidapp.common.model.JiXuanModel;
+import com.szss.androidapp.common.model.CardStyle4Model;
 import com.szss.androidapp.common.model.TitleModel;
 import com.szss.androidapp.common.viewholder.BannerViewHolder;
 import com.szss.androidapp.common.viewholder.CardStyle1ViewHolder;
 import com.szss.androidapp.common.viewholder.CardStyle2ViewHolder;
+import com.szss.androidapp.common.viewholder.CardStyle5ViewHolder;
 import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
-import com.szss.androidapp.common.viewholder.JiXuanViewHolder;
+import com.szss.androidapp.common.viewholder.CardStyle4ViewHolder;
 import com.szss.androidapp.common.viewholder.SpaceViewHolder;
 import com.szss.androidapp.common.viewholder.TitleViewHolder;
-import com.szss.androidapp.model.HaowenItem;
 
 /**
  * Created by wuwei on 2017/6/20.
@@ -34,7 +35,8 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 	public static int TYPE_TITLE = 3;
 	public static int TYPE_CARDSTYLE1 = 4;
 	public static int TYPE_CARDSTYLE2 = 5;
-	public static int TYPE_JIXUAN = 6;
+	public static int TYPE_CARDSTYLE3 = 6;
+	public static int TYPE_CARDSTYLE4 = 7;
 
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -57,9 +59,12 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 		} else if (viewType == TYPE_CARDSTYLE2) {
 			View view = layoutInflater.inflate(R.layout.card_style2_item, parent, false);
 			return new CardStyle2ViewHolder(view);
-		} else if (viewType == TYPE_JIXUAN) {
-			View view = layoutInflater.inflate(R.layout.jixuan_item, parent, false);
-			return new JiXuanViewHolder(view);
+		} else if (viewType == TYPE_CARDSTYLE3) {
+			View view = layoutInflater.inflate(R.layout.card_style4_item, parent, false);
+			return new CardStyle4ViewHolder(view);
+		} else if (viewType == TYPE_CARDSTYLE4) {
+			View view = layoutInflater.inflate(R.layout.card_style5_item, parent, false);
+			return new CardStyle5ViewHolder(view);
 		}
 		return null;
 	}
@@ -75,8 +80,10 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 			((CardStyle1ViewHolder) holder).bindData((CardStyle1Model) getItem(position));
 		} else if (viewType == TYPE_CARDSTYLE2) {
 			((CardStyle2ViewHolder) holder).bindData((CardStyle2Model) getItem(position));
-		} else if (viewType == TYPE_JIXUAN) {
-			((JiXuanViewHolder) holder).bindData((JiXuanModel) getItem(position));
+		} else if (viewType == TYPE_CARDSTYLE3) {
+			((CardStyle4ViewHolder) holder).bindData((CardStyle4Model) getItem(position));
+		} else if (viewType == TYPE_CARDSTYLE4) {
+			((CardStyle5ViewHolder) holder).bindData((CardStyle5Model) getItem(position));
 		}
 	}
 
@@ -91,10 +98,14 @@ public class HaowenAdapter extends BaseRecycleViewAdapter {
 			return TYPE_TITLE;
 		} else if (object instanceof CardStyle1Model) {
 			return TYPE_CARDSTYLE1;
-		} else if (object instanceof JiXuanModel) {
-			return TYPE_JIXUAN;
-		} else {
+		} else if (object instanceof CardStyle2Model) {
 			return TYPE_CARDSTYLE2;
+		} else if (object instanceof CardStyle4Model) {
+			return TYPE_CARDSTYLE3;
+		} else if (object instanceof CardStyle5Model) {
+			return TYPE_CARDSTYLE4;
+		} else {
+			return TYPE_SPACE;
 		}
 	}
 

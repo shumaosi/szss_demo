@@ -23,6 +23,7 @@
                 android:background="@color/all_white">
 
                 <TextView
+                    android:id="@+id/main_toolbar_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -64,7 +65,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/all_white"
-            app:tabMode="scrollable"
+            app:tabIndicatorColor="@color/red_FF4646"
+            app:tabIndicatorHeight="2dp"
+            app:tabMode="fixed"
             app:tabTextAppearance="@style/TabLayoutTextStyle"/>
 
     </android.support.design.widget.AppBarLayout>

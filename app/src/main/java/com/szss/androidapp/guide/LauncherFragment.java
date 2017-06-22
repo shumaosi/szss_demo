@@ -41,13 +41,13 @@ public class LauncherFragment extends Fragment {
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		if (mPage == 0) {
-			mImageView.setImageResource(R.drawable.image55);
+			mImageView.setImageResource(R.drawable.launch_page13);
 		} else if (mPage == 1) {
-			mImageView.setImageResource(R.drawable.launch_page8);
+			mImageView.setImageResource(R.drawable.launch_page12);
 		} else if (mPage == 2) {
-			mImageView.setImageResource(R.drawable.launch_page5);
+			mImageView.setImageResource(R.drawable.launch_page9);
 		} else {
-			mImageView.setImageResource(R.drawable.launch_page1);
+			mImageView.setImageResource(R.drawable.launch_page8);
 			mStartButton.setVisibility(View.VISIBLE);
 			mStartButton.setOnClickListener(new View.OnClickListener() {
 				@Override

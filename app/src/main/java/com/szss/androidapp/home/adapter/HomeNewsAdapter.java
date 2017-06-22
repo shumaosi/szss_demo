@@ -1,8 +1,6 @@
 package com.szss.androidapp.home.adapter;
 
-import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,26 +10,21 @@ import com.lzy.ninegrid.ImageInfo;
 import com.lzy.ninegrid.NineGridView;
 import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.BaseRecycleViewAdapter;
 import com.szss.androidapp.base.WebActivity;
 import com.szss.androidapp.model.NewsModel;
 import com.szss.androidapp.util.Utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by wuwei on 2017/6/15.
  */
 
-public class HomeNewsAdapter extends RecyclerView.Adapter {
-
-	public static final String LOADING_MORE = "loading_more";
+public class HomeNewsAdapter extends BaseRecycleViewAdapter {
 
 	public static final int TYPE_NEWS = 1;
 	public static final int TYPE_LOADING = 2;
-
-
-	private ArrayList<Object> mDatas = new ArrayList<>();
 
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -58,7 +51,7 @@ public class HomeNewsAdapter extends RecyclerView.Adapter {
 	@Override
 	public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
 		if (TYPE_NEWS == getItemViewType(position)) {
-			final NewsModel newsModel = (NewsModel) mDatas.get(position);
+			final NewsModel newsModel = (NewsModel) getItem(position);
 			NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
 			newsViewHolder.title.setText(newsModel.desc);
 			newsViewHolder.content.setText(newsModel.desc);
@@ -86,51 +79,12 @@ public class HomeNewsAdapter extends RecyclerView.Adapter {
 	}
 
 	@Override
-	public int getItemCount() {
-		return mDatas.size();
-	}
-
-	@Override
 	public int getItemViewType(int position) {
 		Object object = getDataList().get(position);
 		if (object instanceof NewsModel) {
 			return TYPE_NEWS;
 		} else {
 			return TYPE_LOADING;
-		}
-	}
-
-	public ArrayList<Object> getDataList() {
-		if (mDatas == null) {
-			mDatas = new ArrayList<>();
-		}
-		return mDatas;
-	}
-
-	public void addDatas(List<NewsModel> newsModels) {
-		getDataList().addAll(newsModels);
-		notifyDataSetChanged();
-	}
-
-	public void addLoadingView() {
-		if (!getDataList().contains(LOADING_MORE)) {
-			getDataList().add(LOADING_MORE);
-			try {
-				notifyItemChanged(mDatas.size() - 1);
-			} catch (Exception e) {
-				notifyDataSetChanged();
-			}
-		}
-	}
-
-	public void removeLoadingView() {
-		if (getDataList().contains(LOADING_MORE)) {
-			getDataList().remove(LOADING_MORE);
-			try {
-				notifyItemChanged(mDatas.size());
-			} catch (Exception e) {
-				notifyDataSetChanged();
-			}
 		}
 	}
 

@@ -1,4 +1,4 @@
-package com.szss.androidapp.home.fragment;
+package com.szss.androidapp.haojia;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,20 +11,23 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.home.fragment.EmptyFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wuwei on 2017/6/14.
+ * Created by wuwei on 2017/6/21.
  */
 
-public class HomeFragment extends Fragment {
+public class HaojiaFragment extends Fragment {
 
 	private ViewPager mViewPager;
 	private TabLayout mTabLayout;
+	private TextView mToolbarText;
 
 
 	@Nullable
@@ -33,30 +36,29 @@ public class HomeFragment extends Fragment {
 		View view = inflater.inflate(R.layout.home_fragment, container, false);
 		mViewPager = (ViewPager) view.findViewById(R.id.main_viewpager);
 		mTabLayout = (TabLayout) view.findViewById(R.id.main_tab_layout);
+		mToolbarText = (TextView) view.findViewById(R.id.main_toolbar_text);
 		return view;
 	}
 
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		mViewPager.setAdapter(new HomeViewPagerAdapter(getActivity().getSupportFragmentManager()));
+		mToolbarText.setText("好价");
+		mViewPager.setAdapter(new HaojiaViewPagerAdapter(getChildFragmentManager()));
 		mTabLayout.setupWithViewPager(mViewPager);
-		mViewPager.setCurrentItem(0);
+		mViewPager.setCurrentItem(1);
+
 	}
 
-	private static class HomeViewPagerAdapter extends FragmentStatePagerAdapter {
+	private static class HaojiaViewPagerAdapter extends FragmentStatePagerAdapter {
 
 		private List<Pair<String, Fragment>> mFragmentList;
 
-		public HomeViewPagerAdapter(FragmentManager fm) {
+		public HaojiaViewPagerAdapter(FragmentManager fm) {
 			super(fm);
 			mFragmentList = new ArrayList<>();
-			mFragmentList.add(new Pair<String, Fragment>("松鼠新闻", HomeNewsFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("图片", HomeImageFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("微信", HomeWeiXinFragment.newInstance()));
-//			mFragmentList.add(new Pair<String, Fragment>("OkRx2", HomeListFragment.newInstance()));
-//			mFragmentList.add(new Pair<String, Fragment>("OkDownload", HomeListFragment.newInstance()));
-//			mFragmentList.add(new Pair<String, Fragment>("OkUpload", HomeListFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("精选", new HaojiaJinxuanFragment()));
+			mFragmentList.add(new Pair<String, Fragment>("发现", new HaojiaFaxianFragment()));
 		}
 
 		@Override
@@ -74,4 +76,5 @@ public class HomeFragment extends Fragment {
 			return mFragmentList.get(position).first;
 		}
 	}
+
 }

@@ -6,7 +6,8 @@ package com.szss.androidapp.action;
 
 public enum ActionName {
 
-	ProfilePage_UserInfoAction,
+	ProfilePage_UserInfoItemClickAction,
+	ProfilePage_UserInfoIconClickAction,
 	ProfilePage_SettingAction,
 	ProfilePage_NotificationAction,
 	ProfilePage_MessageAction
