@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.BaseSwiperefreshFragment;
 import com.szss.androidapp.common.model.BannerModel;
 import com.szss.androidapp.common.model.CardStyle2Model;
 import com.szss.androidapp.common.model.CardStyle5Model;
@@ -23,25 +24,21 @@ import java.util.ArrayList;
  * Created by wuwei on 2017/6/22.
  */
 
-public class HaojiaJinxuanFragment extends Fragment {
+public class HaojiaJinxuanFragment extends BaseSwiperefreshFragment {
 
-	private RecyclerView mRecyclerView;
 	private HaowenAdapter mHaowenAdapter;
 	private LinearLayoutManager mLinearLayoutManager;
-
-	@Nullable
-	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.swiperefresh_fragment, container, false);
-		mRecyclerView = (RecyclerView) view.findViewById(R.id.refreshLayout_recyclerview);
-		return view;
-	}
 
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		initRecyclerView();
 		initData();
+	}
+
+	@Override
+	public void onRefresh() {
+		setRefreshing(false);
 	}
 
 	private void initRecyclerView() {

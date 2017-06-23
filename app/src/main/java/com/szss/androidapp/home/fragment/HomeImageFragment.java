@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.BaseSwiperefreshFragment;
 import com.szss.androidapp.home.adapter.HomeImageAdapter;
 import com.szss.androidapp.util.DensityUtil;
 
@@ -18,20 +19,12 @@ import com.szss.androidapp.util.DensityUtil;
  * Created by wuwei on 2017/6/14.
  */
 
-public class HomeImageFragment extends Fragment {
+public class HomeImageFragment extends BaseSwiperefreshFragment {
 
-	private RecyclerView mRecyclerView;
 
 	public static HomeImageFragment newInstance() {
 		HomeImageFragment homeImageFragment = new HomeImageFragment();
 		return homeImageFragment;
-	}
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.swiperefresh_fragment, container, false);
-		mRecyclerView = (RecyclerView) view.findViewById(R.id.refreshLayout_recyclerview);
-		return view;
 	}
 
 	@Override
@@ -69,4 +62,8 @@ public class HomeImageFragment extends Fragment {
 		mRecyclerView.setAdapter(homeImageAdapter);
 	}
 
+	@Override
+	public void onRefresh() {
+		setRefreshing(false);
+	}
 }

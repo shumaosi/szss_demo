@@ -24,8 +24,6 @@ import com.szss.androidapp.util.GlideImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.szss.androidapp.action.ActionName.ProfilePage_UserInfoIconClickAction;
-
 /**
  * Created by wuwei on 2017/6/16.
  */

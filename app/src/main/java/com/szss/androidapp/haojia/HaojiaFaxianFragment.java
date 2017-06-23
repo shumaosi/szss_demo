@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.BaseSwiperefreshFragment;
 import com.szss.androidapp.common.model.CardStyle3Model;
 import com.szss.androidapp.util.DensityUtil;
 
@@ -20,19 +21,10 @@ import java.util.ArrayList;
  * Created by wuwei on 2017/6/22.
  */
 
-public class HaojiaFaxianFragment extends Fragment {
+public class HaojiaFaxianFragment extends BaseSwiperefreshFragment {
 
-	private RecyclerView mRecyclerView;
 	private HaojiaFaxianAdapter mHaojiaFaxianAdapter;
 	private GridLayoutManager mGridLayoutManager;
-
-	@Nullable
-	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.haojia_faxian_fragment_view, container, false);
-		mRecyclerView = (RecyclerView) view.findViewById(R.id.refreshLayout_recyclerview);
-		return view;
-	}
 
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -72,5 +64,8 @@ public class HaojiaFaxianFragment extends Fragment {
 		mHaojiaFaxianAdapter.addData(list);
 	}
 
-
+	@Override
+	public void onRefresh() {
+		setRefreshing(false);
+	}
 }

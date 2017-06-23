@@ -48,10 +48,10 @@ public class ResponseData {
 			}
 //			response.server = jsonUtil.optString("server");
 
-			if (jsonObj.get("data") instanceof JSONObject) {
-				response.data = jsonUtil.optJSONObject("data");
+			if (jsonObj.get("results") instanceof JSONObject) {
+				response.data = jsonUtil.optJSONObject("results");
 			} else {
-				response.jsonarrayData = jsonUtil.optJSONArray("data");
+				response.jsonarrayData = jsonUtil.optJSONArray("results");
 			}
 
 		} catch (Exception e) {

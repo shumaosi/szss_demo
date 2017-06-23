@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,28 +18,28 @@ import android.view.ViewGroup;
 import com.lzy.ninegrid.NineGridView;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
+import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.szss.androidapp.R;
+import com.szss.androidapp.base.BaseSwiperefreshFragment;
 import com.szss.androidapp.home.adapter.HomeNewsAdapter;
 import com.szss.androidapp.model.NewsModel;
 import com.szss.androidapp.model.NewsResponse;
 import com.szss.androidapp.model.NewsCallback;
 import com.szss.androidapp.util.GlideImageLoader;
 import com.szss.androidapp.util.RecyclerViewOnScrollListener;
+import com.szss.androidapp.util.ResponseData;
 import com.szss.androidapp.util.Urls;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by wuwei on 2017/6/15.
  */
 
-public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class HomeNewsFragment extends BaseSwiperefreshFragment {
 
-	private SwipeRefreshLayout mSwipeRefreshLayout;
 	private RecyclerViewOnScrollListener mRecyclerViewOnScrollListener;
-	private RecyclerView mRecyclerView;
 	private LinearLayoutManager mLinearLayoutManager;
 	private String url;
 	private int currentPage = 2;
@@ -49,26 +50,29 @@ public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnR
 		return new HomeNewsFragment();
 	}
 
-	@Nullable
-	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.swiperefresh_fragment, container, false);
-		mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
-		mRecyclerView = (RecyclerView) view.findViewById(R.id.refreshLayout_recyclerview);
-		return view;
-	}
-
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		NineGridView.setImageLoader(new GlideImageLoader());
 		initRecyclerView();
-		initSwipeRefresh();
+		onRefresh();
 		setOnScrollEvent();
 	}
 
 	@Override
 	public void onRefresh() {
+
+//		OkGo.<String>get(url+"1").tag(this).cacheKey("TabFragment_"+"Android").cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST).
+//				execute(new StringCallback() {
+//					@Override
+//					public void onSuccess(Response<String> response) {
+//						String url;
+//						Log.i("ww",response.body());
+//						ResponseData responseData = ResponseData.responseParser(response.body());
+//
+//					}
+//				});
+
 		OkGo.<NewsResponse<List<NewsModel>>>get(url + "1")
 				.cacheKey("TabFragment_" + "Android")
 				.cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
@@ -124,13 +128,6 @@ public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnR
 				});
 	}
 
-	private void initSwipeRefresh() {
-		mSwipeRefreshLayout.setRefreshing(true);
-		mSwipeRefreshLayout.setOnRefreshListener(this);
-		mSwipeRefreshLayout.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN);
-		onRefresh();
-	}
-
 	private void initRecyclerView() {
 		url = Urls.URL_GANK_BASE + "Android" + "/" + 20 + "/";
 		mHomeNewsAdapter = new HomeNewsAdapter();
@@ -154,15 +151,6 @@ public class HomeNewsFragment extends Fragment implements SwipeRefreshLayout.OnR
 							v.getBottom() + 16);
 					colorDrawable.draw(c);
 				}
-			}
-		});
-	}
-
-	private void setRefreshing(final boolean refreshing) {
-		mSwipeRefreshLayout.post(new Runnable() {
-			@Override
-			public void run() {
-				mSwipeRefreshLayout.setRefreshing(refreshing);
 			}
 		});
 	}
