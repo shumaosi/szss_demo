@@ -44,6 +44,8 @@ public class HomeFragment extends Fragment {
 		mViewPager.setCurrentItem(0);
 	}
 
+
+
 	private static class HomeViewPagerAdapter extends FragmentStatePagerAdapter {
 
 		private List<Pair<String, Fragment>> mFragmentList;

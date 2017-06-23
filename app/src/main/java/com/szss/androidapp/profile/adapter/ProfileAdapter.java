@@ -1,6 +1,5 @@
 package com.szss.androidapp.profile.adapter;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jakewharton.rxbinding2.view.RxView;
-import com.lzy.imagepicker.ImagePicker;
-import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.szss.androidapp.R;
 import com.szss.androidapp.action.ActionName;
 import com.szss.androidapp.base.BaseRecycleViewAdapter;
@@ -18,12 +14,6 @@ import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
 import com.szss.androidapp.common.viewholder.SpaceViewHolder;
 import com.szss.androidapp.model.ProfileItem;
 import com.szss.androidapp.common.view.RoundedImageView;
-import com.szss.androidapp.util.GlideImageLoader;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
 
 /**
  * Created by wuwei on 2017/6/16.

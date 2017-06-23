@@ -1,5 +1,6 @@
 package com.szss.androidapp.base;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -15,11 +16,18 @@ import com.szss.androidapp.haowen.HaowenFragment;
 import com.szss.androidapp.home.fragment.HomeFragment;
 import com.szss.androidapp.home.fragment.HomeImageFragment;
 import com.szss.androidapp.profile.fragment.ProfileFragment;
+import com.szss.androidapp.util.PrefsUtil;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
+
+	public static final int NAVIGATION_TAB_HOME = 0;
+	public static final int NAVIGATION_TAB_HAOJIA = 1;
+	public static final int NAVIGATION_TAB_HAOWU = 2;
+	public static final int NAVIGATION_TAB_HAOWEN = 3;
+	public static final int NAVIGATION_TAB_PROFILE = 4;
 
 	private ArrayList<Fragment> mFragments;
 
@@ -30,19 +38,19 @@ public class MainActivity extends BaseActivity {
 		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 			switch (item.getItemId()) {
 				case R.id.navigation_home:
-					showFragment(0);
+					showFragment(NAVIGATION_TAB_HOME);
 					return true;
 				case R.id.navigation_haojia:
-					showFragment(1);
+					showFragment(NAVIGATION_TAB_HAOJIA);
 					return true;
 				case R.id.navigation_haowu:
-					showFragment(2);
+					showFragment(NAVIGATION_TAB_HAOWU);
 					return true;
 				case R.id.navigation_haowen:
-					showFragment(3);
+					showFragment(NAVIGATION_TAB_HAOWEN);
 					return true;
 				case R.id.navigation_profile:
-					showFragment(4);
+					showFragment(NAVIGATION_TAB_PROFILE);
 					return true;
 			}
 			return false;
@@ -55,20 +63,37 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initSystemBarTint();
+		initFragments();
 		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 		disableShiftMode(navigation);
 		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-		initFragments();
-		showFragment(0);
+		navigation.setSelectedItemId(getLastVisitNavigationId());
+	}
+
+	private int getLastVisitNavigationId() {
+		int lastvisit = PrefsUtil.getInstance().getInt(PrefsUtil.ENTERPAGE_LASTVISIT, NAVIGATION_TAB_HOME);
+		if (lastvisit == NAVIGATION_TAB_HOME) {
+			return R.id.navigation_home;
+		}
+		if (lastvisit == NAVIGATION_TAB_HAOJIA) {
+			return R.id.navigation_haojia;
+		}
+		if (lastvisit == NAVIGATION_TAB_HAOWU) {
+			return R.id.navigation_haowu;
+		}
+		if (lastvisit == NAVIGATION_TAB_HAOWEN) {
+			return R.id.navigation_haowen;
+		}
+		return R.id.navigation_profile;
 	}
 
 	private void initFragments() {
 		mFragments = new ArrayList<>();
-		mFragments.add(new HomeFragment());
-		mFragments.add(new HaojiaFragment());
-		mFragments.add(new HomeImageFragment());
-		mFragments.add(new HaowenFragment());
-		mFragments.add(new ProfileFragment());
+		mFragments.add(NAVIGATION_TAB_HOME, new HomeFragment());
+		mFragments.add(NAVIGATION_TAB_HAOJIA, new HaojiaFragment());
+		mFragments.add(NAVIGATION_TAB_HAOWU, new HomeImageFragment());
+		mFragments.add(NAVIGATION_TAB_HAOWEN, new HaowenFragment());
+		mFragments.add(NAVIGATION_TAB_PROFILE, new ProfileFragment());
 	}
 
 	private void showFragment(int index) {
@@ -88,6 +113,12 @@ public class MainActivity extends BaseActivity {
 			}
 		}
 		fragmentTransaction.commit();
+		saveLastVistIndex(index);
+	}
+
+	private void saveLastVistIndex(int index) {
+		SharedPreferences sharedPreferences = PrefsUtil.getInstance();
+		sharedPreferences.edit().putInt(PrefsUtil.ENTERPAGE_LASTVISIT, index).apply();
 	}
 
 	@Override

@@ -3,7 +3,6 @@ package com.szss.androidapp.profile.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,16 +22,13 @@ import com.szss.androidapp.profile.adapter.ProfileAdapter;
 import com.szss.androidapp.rxbus.RefreshProfileEvent;
 import com.szss.androidapp.rxbus.RxBus;
 import com.szss.androidapp.rxbus.UpdateProfileIconEvent;
-import com.szss.androidapp.util.GlideImageLoader;
+import com.szss.androidapp.util.GlideImageLoaderUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by wuwei on 2017/6/16.
@@ -127,7 +123,7 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 			case ProfilePage_UserInfoIconClickAction:
 				mImageView = (ImageView) view;
 				ImagePicker imagePicker = ImagePicker.getInstance();
-				imagePicker.setImageLoader(new GlideImageLoader());
+				imagePicker.setImageLoader(new GlideImageLoaderUtil());
 				imagePicker.setShowCamera(true);
 				imagePicker.setSelectLimit(1);
 				imagePicker.setCrop(false);

@@ -1,24 +1,17 @@
 package com.szss.androidapp.home.fragment;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.lzy.ninegrid.NineGridView;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
-import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.BaseSwiperefreshFragment;
@@ -26,9 +19,8 @@ import com.szss.androidapp.home.adapter.HomeNewsAdapter;
 import com.szss.androidapp.model.NewsModel;
 import com.szss.androidapp.model.NewsResponse;
 import com.szss.androidapp.model.NewsCallback;
-import com.szss.androidapp.util.GlideImageLoader;
+import com.szss.androidapp.util.GlideImageLoaderUtil;
 import com.szss.androidapp.util.RecyclerViewOnScrollListener;
-import com.szss.androidapp.util.ResponseData;
 import com.szss.androidapp.util.Urls;
 
 import java.util.List;
@@ -53,7 +45,7 @@ public class HomeNewsFragment extends BaseSwiperefreshFragment {
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		NineGridView.setImageLoader(new GlideImageLoader());
+		NineGridView.setImageLoader(new GlideImageLoaderUtil());
 		initRecyclerView();
 		onRefresh();
 		setOnScrollEvent();
@@ -89,6 +81,11 @@ public class HomeNewsFragment extends BaseSwiperefreshFragment {
 					@Override
 					public void onCacheSuccess(Response<NewsResponse<List<NewsModel>>> response) {
 						super.onCacheSuccess(response);
+						List<NewsModel> results = response.body().results;
+						if (results != null) {
+							currentPage = 2;
+							mHomeNewsAdapter.addData(results);
+						}
 					}
 
 					@Override

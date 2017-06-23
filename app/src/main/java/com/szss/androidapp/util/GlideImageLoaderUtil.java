@@ -32,7 +32,7 @@ import java.io.File;
  * Created by wuwei on 2017/6/15.
  */
 
-public class GlideImageLoader implements ImageLoader, NineGridView.ImageLoader {
+public class GlideImageLoaderUtil implements ImageLoader, NineGridView.ImageLoader {
 
 	private static final long serialVersionUID = -5229366824486709422L;
 

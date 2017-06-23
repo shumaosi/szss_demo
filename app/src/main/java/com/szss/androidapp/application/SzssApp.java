@@ -29,9 +29,16 @@ import okhttp3.OkHttpClient;
 
 public class SzssApp extends Application {
 
+	private static SzssApp instance;
+
+	public static SzssApp getInstance() {
+		return instance;
+	}
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		instance = this;
 		initOkGo();
 	}
 
