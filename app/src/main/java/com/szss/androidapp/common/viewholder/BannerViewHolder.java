@@ -9,6 +9,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.WebActivity;
+import com.szss.androidapp.rxbus.RefreshProfileEvent;
+import com.szss.androidapp.rxbus.RxBus;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;

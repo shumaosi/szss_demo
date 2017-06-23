@@ -17,21 +17,33 @@ import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.szss.androidapp.R;
 import com.szss.androidapp.action.ActionName;
+import com.szss.androidapp.base.BaseFragment;
 import com.szss.androidapp.model.ProfileItem;
 import com.szss.androidapp.profile.adapter.ProfileAdapter;
+import com.szss.androidapp.rxbus.RefreshProfileEvent;
+import com.szss.androidapp.rxbus.RxBus;
+import com.szss.androidapp.rxbus.UpdateProfileIconEvent;
 import com.szss.androidapp.util.GlideImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * Created by wuwei on 2017/6/16.
  */
 
-public class ProfileFragment extends Fragment implements ProfileAdapter.ProfileActionClickListener {
+public class ProfileFragment extends BaseFragment implements ProfileAdapter.ProfileActionClickListener {
 
 	private RecyclerView mRecyclerView;
 	private ProfileAdapter mProfileAdapter;
+
+	private ImageView mImageView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,6 +57,36 @@ public class ProfileFragment extends Fragment implements ProfileAdapter.ProfileA
 		super.onActivityCreated(savedInstanceState);
 		initRecyclerView();
 		initData();
+		addSubscribe();
+	}
+
+	private void addSubscribe() {
+		RxBus.getInstance().subscribe(Object.class, new Consumer() {
+			@Override
+			public void accept(@NonNull Object o) throws Exception {
+				if (o instanceof UpdateProfileIconEvent) {
+					UpdateProfileIconEvent updateProfileIconEvent = (UpdateProfileIconEvent) o;
+					Glide.with(getContext()).load(updateProfileIconEvent.getImageItem().path).error(R.mipmap.ic_launcher).into(mImageView);
+				} else if (o instanceof RefreshProfileEvent) {
+					refreshData();
+				}
+			}
+		});
+	}
+
+	private void refreshData() {
+		if (mProfileAdapter != null) {
+			mProfileAdapter.getDataList().clear();
+			ArrayList<ProfileItem> list = new ArrayList<>();
+			list.add(new ProfileItem(ProfileItem.ItemType.profileInfo));
+			list.add(new ProfileItem(ProfileItem.ItemType.space));
+			list.add(new ProfileItem(ProfileItem.ItemType.profileInfo));
+			list.add(new ProfileItem(ProfileItem.ItemType.space));
+			list.add(new ProfileItem(ProfileItem.ItemType.profileInfo));
+			list.add(new ProfileItem(ProfileItem.ItemType.space));
+			list.add(new ProfileItem(ProfileItem.ItemType.notification));
+			mProfileAdapter.addData(list);
+		}
 	}
 
 	private void initData() {
@@ -72,15 +114,12 @@ public class ProfileFragment extends Fragment implements ProfileAdapter.ProfileA
 		mProfileAdapter.addData(list);
 	}
 
-
 	private void initRecyclerView() {
 		mProfileAdapter = new ProfileAdapter();
 		mProfileAdapter.setProfileActionClickListener(this);
 		mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 		mRecyclerView.setAdapter(mProfileAdapter);
 	}
-
-	private ImageView mImageView;
 
 	@Override
 	public void profileActionClick(ActionName actionName, View view) {
@@ -106,7 +145,7 @@ public class ProfileFragment extends Fragment implements ProfileAdapter.ProfileA
 				//noinspection unchecked
 				List<ImageItem> images = (List<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
 				ImageItem imageItem = images.get(0);
-				Glide.with(getContext()).load(imageItem.path).error(R.mipmap.ic_launcher).into(mImageView);
+				RxBus.getInstance().send(new UpdateProfileIconEvent(imageItem));
 			}
 		}
 	}
