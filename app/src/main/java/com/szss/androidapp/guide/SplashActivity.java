@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.base.MainActivity;
+import com.szss.androidapp.base.EntryActivity;
 import com.szss.androidapp.base.BaseActivity;
 
 import java.util.Timer;
@@ -62,7 +62,7 @@ public class SplashActivity extends BaseActivity {
 			return;
 		}
 
-		startActivity(new Intent(SplashActivity.this, MainActivity.class));
+		startActivity(new Intent(SplashActivity.this, EntryActivity.class));
 		finish();
 	}
 

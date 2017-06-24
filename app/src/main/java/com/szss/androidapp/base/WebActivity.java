@@ -25,6 +25,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.r0adkll.slidr.Slidr;
 import com.szss.androidapp.R;
 
 /**
@@ -72,6 +73,7 @@ public class WebActivity extends BaseActivity {
 			}
 		});
 		webView.loadUrl(url);
+		Slidr.attach(this);
 	}
 
 	@Override

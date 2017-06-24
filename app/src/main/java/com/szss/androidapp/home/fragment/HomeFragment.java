@@ -39,11 +39,10 @@ public class HomeFragment extends Fragment {
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		mViewPager.setAdapter(new HomeViewPagerAdapter(getActivity().getSupportFragmentManager()));
+		mViewPager.setAdapter(new HomeViewPagerAdapter(getChildFragmentManager()));
 		mTabLayout.setupWithViewPager(mViewPager);
 		mViewPager.setCurrentItem(0);
 	}
-
 
 
 	private static class HomeViewPagerAdapter extends FragmentStatePagerAdapter {

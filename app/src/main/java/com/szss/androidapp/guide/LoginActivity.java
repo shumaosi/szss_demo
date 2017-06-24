@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.base.MainActivity;
+import com.szss.androidapp.base.EntryActivity;
 import com.szss.androidapp.base.BaseActivity;
 
 /**
@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity {
 		mLoginBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+				Intent intent = new Intent(LoginActivity.this, EntryActivity.class);
 				startActivity(intent);
 			}
 		});

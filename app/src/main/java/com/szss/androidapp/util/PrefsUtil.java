@@ -14,6 +14,7 @@ public class PrefsUtil {
 	public static final String ENTERPAGE_LASTVISIT = "enterpage_lastvisit";
 	public static final String HOMEPAGE_LASTVISIT = "homepage_lastvisit";
 	public static final String HAOJIAPAGE_LASTVISIT = "haojiapage_lastvisit";
+	public static final String FIRST_OPEN_APP = "first_open_app";
 
 
 	public static SharedPreferences getInstance() {

@@ -1,6 +1,8 @@
 package com.szss.androidapp.base;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -11,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.guide.LauncherActivity;
 import com.szss.androidapp.haojia.HaojiaFragment;
 import com.szss.androidapp.haowen.HaowenFragment;
 import com.szss.androidapp.home.fragment.HomeFragment;
@@ -21,7 +24,7 @@ import com.szss.androidapp.util.PrefsUtil;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity {
+public class EntryActivity extends BaseActivity {
 
 	public static final int NAVIGATION_TAB_HOME = 0;
 	public static final int NAVIGATION_TAB_HAOJIA = 1;
@@ -61,14 +64,31 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		setContentView(R.layout.activity_main);
-		initSystemBarTint();
-		initFragments();
-		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-		disableShiftMode(navigation);
-		navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-		navigation.setSelectedItemId(getLastVisitNavigationId());
+		enterApp();
 	}
+
+	private void enterApp() {
+		SharedPreferences sharedPreferences = PrefsUtil.getInstance();
+		if (sharedPreferences.getBoolean(PrefsUtil.FIRST_OPEN_APP, true)) {
+			sharedPreferences.edit().putBoolean(PrefsUtil.FIRST_OPEN_APP, false).apply();
+			Intent intent = new Intent(this, LauncherActivity.class);
+			startActivity(intent);
+		} else {
+			initSystemBarTint();
+			initFragments();
+			BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+			disableShiftMode(navigation);
+			navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+			navigation.setSelectedItemId(getLastVisitNavigationId());
+		}
+	}
+
 
 	private int getLastVisitNavigationId() {
 		int lastvisit = PrefsUtil.getInstance().getInt(PrefsUtil.ENTERPAGE_LASTVISIT, NAVIGATION_TAB_HOME);

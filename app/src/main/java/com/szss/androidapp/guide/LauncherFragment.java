@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.szss.androidapp.R;
-import com.szss.androidapp.base.MainActivity;
+import com.szss.androidapp.base.EntryActivity;
 
 /**
  * Created by wuwei on 2017/6/17.
@@ -52,8 +52,9 @@ public class LauncherFragment extends Fragment {
 			mStartButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent(LauncherFragment.this.getContext(), MainActivity.class);
+					Intent intent = new Intent(LauncherFragment.this.getContext(), EntryActivity.class);
 					startActivity(intent);
+					getActivity().finish();
 				}
 			});
 		}

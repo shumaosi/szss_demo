@@ -12,7 +12,7 @@ import com.szss.androidapp.base.BaseActivity;
  * Created by wuwei on 2017/6/15.
  */
 
-public class EntryActivity extends BaseActivity {
+public class WelcomeActivity extends BaseActivity {
 
 //	private TextView mLoginView;
 	private TextView mRegistView;
@@ -36,7 +36,7 @@ public class EntryActivity extends BaseActivity {
 		mRegistView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(EntryActivity.this, LoginActivity.class);
+				Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
 				startActivity(intent);
 			}
 		});
