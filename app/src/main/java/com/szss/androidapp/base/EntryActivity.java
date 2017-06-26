@@ -2,7 +2,6 @@ package com.szss.androidapp.base;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -23,6 +22,11 @@ import com.szss.androidapp.util.PrefsUtil;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 
 public class EntryActivity extends BaseActivity {
 
@@ -64,12 +68,6 @@ public class EntryActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		setContentView(R.layout.activity_main);
 		enterApp();
 	}
 
@@ -79,13 +77,27 @@ public class EntryActivity extends BaseActivity {
 			sharedPreferences.edit().putBoolean(PrefsUtil.FIRST_OPEN_APP, false).apply();
 			Intent intent = new Intent(this, LauncherActivity.class);
 			startActivity(intent);
+			finish();
 		} else {
-			initSystemBarTint();
-			initFragments();
-			BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-			disableShiftMode(navigation);
-			navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-			navigation.setSelectedItemId(getLastVisitNavigationId());
+			Observable.timer(2, TimeUnit.SECONDS)
+					.observeOn(AndroidSchedulers.mainThread())
+					.subscribe(new Consumer<Long>() {
+				@Override
+				public void accept(@io.reactivex.annotations.NonNull Long aLong) throws Exception {
+					setContentView(R.layout.activity_main);
+					initSystemBarTint();
+					initFragments();
+					BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+					disableShiftMode(navigation);
+					navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+					navigation.setSelectedItemId(getLastVisitNavigationId());
+				}
+			});
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 		}
 	}
 

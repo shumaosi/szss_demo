@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android App</string>
+    <string name="app_name">三只松鼠 Demo</string>
     <string name="title_home">首页</string>
     <string name="title_dashboard">分类</string>
     <string name="notification">通知</string>

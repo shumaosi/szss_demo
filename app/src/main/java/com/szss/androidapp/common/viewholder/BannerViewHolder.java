@@ -12,6 +12,7 @@ import com.szss.androidapp.base.WebActivity;
 import com.szss.androidapp.rxbus.RefreshProfileEvent;
 import com.szss.androidapp.rxbus.RxBus;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
@@ -56,6 +57,7 @@ public class BannerViewHolder extends RecyclerView.ViewHolder {
 		mBanner.setImages(imageUrlList);
 
 		mBanner.setDelayTime(4 * 1000);
+		mBanner.setIndicatorGravity(BannerConfig.RIGHT);
 		mBanner.start();
 		mBanner.setOnBannerListener(new OnBannerListener() {
 			@Override

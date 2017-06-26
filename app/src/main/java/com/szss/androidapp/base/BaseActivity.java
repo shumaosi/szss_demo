@@ -13,6 +13,7 @@ import android.view.WindowManager;
 
 import com.lzy.imagepicker.view.SystemBarTintManager;
 import com.szss.androidapp.R;
+import com.szss.androidapp.util.CrashHandler;
 
 /**
  * Created by wuwei on 2017/6/14.
@@ -23,6 +24,7 @@ public class BaseActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(this));
 		initSystemBarTint();
 	}
 
