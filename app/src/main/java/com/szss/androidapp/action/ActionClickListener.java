@@ -8,4 +8,5 @@ public interface ActionClickListener {
 
 	void actionClick(ActionName actionName, int position);
 
+
 }

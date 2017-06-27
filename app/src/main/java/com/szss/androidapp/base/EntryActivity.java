@@ -10,8 +10,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.szss.androidapp.R;
+import com.szss.androidapp.application.SzssApp;
 import com.szss.androidapp.guide.LauncherActivity;
 import com.szss.androidapp.haojia.HaojiaFragment;
 import com.szss.androidapp.haowen.HaowenFragment;
@@ -82,17 +84,17 @@ public class EntryActivity extends BaseActivity {
 			Observable.timer(2, TimeUnit.SECONDS)
 					.observeOn(AndroidSchedulers.mainThread())
 					.subscribe(new Consumer<Long>() {
-				@Override
-				public void accept(@io.reactivex.annotations.NonNull Long aLong) throws Exception {
-					setContentView(R.layout.activity_main);
-					initSystemBarTint();
-					initFragments();
-					BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-					disableShiftMode(navigation);
-					navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-					navigation.setSelectedItemId(getLastVisitNavigationId());
-				}
-			});
+						@Override
+						public void accept(@io.reactivex.annotations.NonNull Long aLong) throws Exception {
+							setContentView(R.layout.activity_main);
+							initSystemBarTint();
+							initFragments();
+							BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+							disableShiftMode(navigation);
+							navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+							navigation.setSelectedItemId(getLastVisitNavigationId());
+						}
+					});
 //			try {
 //				Thread.sleep(1000);
 //			} catch (InterruptedException e) {
@@ -174,8 +176,8 @@ public class EntryActivity extends BaseActivity {
 				//noinspection RestrictedApi
 				item.setChecked(item.getItemData().isChecked());
 			}
-		} catch (NoSuchFieldException e) {
-		} catch (IllegalAccessException e) {
+		} catch (Exception e) {
+			Toast.makeText(SzssApp.getInstance().getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
 		}
 	}
 

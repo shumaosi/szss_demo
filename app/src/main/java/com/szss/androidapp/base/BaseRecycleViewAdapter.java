@@ -12,9 +12,9 @@ import java.util.List;
 
 public class BaseRecycleViewAdapter extends RecyclerView.Adapter {
 
-	public static final String LOADING_MORE = "loading_more";
+	private static final String LOADING_MORE = "loading_more";
 
-	protected ArrayList<Object> mData;
+	private ArrayList<Object> mData;
 
 
 	@Override
@@ -32,11 +32,11 @@ public class BaseRecycleViewAdapter extends RecyclerView.Adapter {
 		return getDataList().size();
 	}
 
-	public Object getItem(int position) {
+	protected Object getItem(int position) {
 		return getDataList().get(position);
 	}
 
-	public ArrayList getDataList() {
+	public ArrayList<Object> getDataList() {
 		if (mData == null) {
 			mData = new ArrayList<>();
 		}
@@ -44,7 +44,7 @@ public class BaseRecycleViewAdapter extends RecyclerView.Adapter {
 	}
 
 	public void addData(List list) {
-		getDataList().addAll(list);
+		getDataList().addAll(list)
 		notifyDataSetChanged();
 	}
 

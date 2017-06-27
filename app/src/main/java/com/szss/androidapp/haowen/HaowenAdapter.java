@@ -25,7 +25,7 @@ import com.szss.androidapp.common.viewholder.TitleViewHolder;
 
 /**
  * Created by wuwei on 2017/6/20.
- */
+ **/
 
 public class HaowenAdapter extends BaseRecycleViewAdapter {
 

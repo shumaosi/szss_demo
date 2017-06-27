@@ -27,7 +27,6 @@ public class HaowenFragment extends Fragment {
 
 	private RecyclerView mRecyclerView;
 	private HaowenAdapter mHaowenAdapter;
-	private LinearLayoutManager mLinearLayoutManager;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,8 +44,8 @@ public class HaowenFragment extends Fragment {
 
 	private void initRecyclerView() {
 		mHaowenAdapter = new HaowenAdapter();
-		mLinearLayoutManager = new LinearLayoutManager(getContext());
-		mRecyclerView.setLayoutManager(mLinearLayoutManager);
+		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+		mRecyclerView.setLayoutManager(linearLayoutManager);
 		mRecyclerView.setAdapter(mHaowenAdapter);
 	}
 

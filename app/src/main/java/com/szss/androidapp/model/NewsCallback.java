@@ -34,6 +34,7 @@ public abstract class NewsCallback<T> extends AbsCallback<T> {
      * 这里的数据解析是根据 http://gank.io/api/data/Android/10/1 返回的数据来写的
      * 实际使用中,自己服务器返回的数据格式和上面网站肯定不一样,所以以下是参考代码,根据实际情况自己改写
      */
+
     @Override
     public T convertResponse(Response response) throws Throwable {
         //以下代码是通过泛型解析实际参数,泛型必须传

@@ -100,7 +100,6 @@ public class LauncherActivity extends BaseActivity implements ViewPager.OnPageCh
 
 	}
 
-
 	private class LauncherViewPagerAdapter extends FragmentStatePagerAdapter {
 
 		private ArrayList<Fragment> mFragments;
