@@ -13,8 +13,8 @@ import io.reactivex.subjects.Subject;
 public class RxBus {
 
 	private static volatile RxBus mInstance;
-	private final Subject<Object> subject = PublishSubject.create().toSerialized();
-	private Disposable dispoable;
+	private final Subject<Object> mSubject = PublishSubject.create().toSerialized();
+	private Disposable mDispoable;
 
 
 	private RxBus() {
@@ -34,40 +34,28 @@ public class RxBus {
 
 	/**
 	 * 发送事件
-	 *
-	 * @param object
 	 */
 	public void send(Object object) {
-		subject.onNext(object);
+		mSubject.onNext(object);
 	}
 
-
-	/**
-	 * @param classType
-	 * @param <T>
-	 * @return
-	 */
-	public <T> Observable<T> toObservale(Class<T> classType) {
-		return subject.ofType(classType);
+	private <T> Observable<T> toObservale(Class<T> classType) {
+		return mSubject.ofType(classType);
 	}
-
 
 	/**
 	 * 订阅
-	 *
-	 * @param bean
-	 * @param consumer
 	 */
 	public void subscribe(Class bean, Consumer consumer) {
-		dispoable = toObservale(bean).subscribe(consumer);
+		mDispoable = toObservale(bean).subscribe(consumer);
 	}
 
 	/**
 	 * 取消订阅
 	 */
-	public void unSubcribe() {
-		if (dispoable != null && dispoable.isDisposed()) {
-			dispoable.dispose();
+	public void unSubscribe() {
+		if (mDispoable != null && mDispoable.isDisposed()) {
+			mDispoable.dispose();
 		}
 
 	}

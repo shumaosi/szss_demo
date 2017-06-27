@@ -17,8 +17,8 @@ import com.szss.androidapp.model.NewsModel;
 
 public class HomeNewsAdapter extends BaseRecycleViewAdapter {
 
-	public static final int TYPE_NEWS = 1;
-	public static final int TYPE_LOADING = 2;
+	private static final int TYPE_NEWS = 1;
+	private static final int TYPE_LOADING = 2;
 
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

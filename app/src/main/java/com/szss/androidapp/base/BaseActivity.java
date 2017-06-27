@@ -98,7 +98,9 @@ public class BaseActivity extends AppCompatActivity {
 	public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {
 		toolbar.setTitle(title);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
+		if (getSupportActionBar() != null) {
+			getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
+		}
 	}
 
 }

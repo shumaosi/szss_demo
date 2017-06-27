@@ -25,18 +25,16 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
-	public static String username_forum_expression = "[A-Za-z0-9_\\.\\s]{3,32}$";
-	public static String email_expression = "\\w+([-+.]\\w+)*@\\w+([-+.]\\w+)*\\.\\w+([-+.]\\w+)*";
-
-
 	public static boolean checkForumUsernameFormat(String username) {
 		Pattern pattern;
+		String username_forum_expression = "[A-Za-z0-9_\\.\\s]{3,32}$";
 		pattern = Pattern.compile(username_forum_expression);
 		Matcher mc = pattern.matcher(username);
 		return mc.matches();
 	}
 
 	public static boolean checkEmailFormat(String email) {
+		String email_expression = "\\w+([-+.]\\w+)*@\\w+([-+.]\\w+)*\\.\\w+([-+.]\\w+)*";
 		Pattern pattern = Pattern.compile(email_expression);
 		Matcher mc = pattern.matcher(email);
 		return mc.matches();

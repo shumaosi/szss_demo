@@ -55,7 +55,7 @@ public class HaojiaFaxianFragment extends BaseSwiperefreshFragment {
 				}
 			}
 		});
-		ArrayList list = new ArrayList();
+		ArrayList<CardStyle3Model> list = new ArrayList<>();
 		list.add(new CardStyle3Model());
 		list.add(new CardStyle3Model());
 		list.add(new CardStyle3Model());

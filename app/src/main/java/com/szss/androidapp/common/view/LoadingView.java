@@ -129,10 +129,6 @@ public class LoadingView extends LinearLayout {
 		}
 	}
 
-	/***
-	 *
-	 * @param height
-	 */
 	public void setHeightInAbsListView(int height) {
 		setGravity(Gravity.CENTER_HORIZONTAL);
 		setLayoutParams(new AbsListView.LayoutParams(

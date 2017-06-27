@@ -54,7 +54,7 @@ public class HaojiaFragment extends Fragment {
 
 		private List<Pair<String, Fragment>> mFragmentList;
 
-		public HaojiaViewPagerAdapter(FragmentManager fm) {
+		private HaojiaViewPagerAdapter(FragmentManager fm) {
 			super(fm);
 			mFragmentList = new ArrayList<>();
 			mFragmentList.add(new Pair<String, Fragment>("精选", new HaojiaJinxuanFragment()));

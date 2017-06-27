@@ -7,19 +7,19 @@ public class JSONUtil implements ParserUtil.IParser {
 
 	// region -------- Default Values Define --------
 
-	public static final String JSONUTIL_DEFAULT_STRING_VAL = "";
-	public static final Integer JSONUTIL_DEFAULT_INTEGER_VAL = 0;
-	public static final Boolean JSONUTIL_DEFAULT_BOOLEAN_VAL = false;
-	public static final JSONObject JSONUTIL_DEFAULT_JSONOBJECT_VAL = null;
-	public static final JSONArray JSONUTIL_DEFAULT_JSONARRAY_VAL = null;
-	public static final Double JSONUTIL_DEFAULT_DOUBLE_VAL = 0.0d;
-	public static final Float JSONUTIL_DEFAULT_FLOAT_VAL = 0.0f;
+	private static final String JSONUTIL_DEFAULT_STRING_VAL = "";
+	private static final Integer JSONUTIL_DEFAULT_INTEGER_VAL = 0;
+	private static final Boolean JSONUTIL_DEFAULT_BOOLEAN_VAL = false;
+	private static final JSONObject JSONUTIL_DEFAULT_JSONOBJECT_VAL = null;
+	private static final JSONArray JSONUTIL_DEFAULT_JSONARRAY_VAL = null;
+	private static final Double JSONUTIL_DEFAULT_DOUBLE_VAL = 0.0d;
+	private static final Float JSONUTIL_DEFAULT_FLOAT_VAL = 0.0f;
 
 	// endregion
 
 	private JSONObject jsonObject = null;
 
-	public JSONUtil(JSONObject jsonObject) {
+	private JSONUtil(JSONObject jsonObject) {
 		this.jsonObject = jsonObject;
 	}
 
@@ -31,9 +31,6 @@ public class JSONUtil implements ParserUtil.IParser {
 
 	/**
 	 * Returns the value mapped by name, or {@code null} if no such mapping exists.
-	 * 
-	 * @param key
-	 * @return
 	 */
 	public Object opt(String key) {
 		if (jsonObject == null) {
@@ -44,11 +41,7 @@ public class JSONUtil implements ParserUtil.IParser {
 	}
 
 	public boolean has(String key) {
-		if (jsonObject == null) {
-			return false;
-		} else {
-			return jsonObject.has(key);
-		}
+		return jsonObject != null && jsonObject.has(key);
 	}
 
 	// endregion
@@ -58,9 +51,6 @@ public class JSONUtil implements ParserUtil.IParser {
 	/**
 	 * Returns the value mapped by name, or {@code JSONUTIL_DEFAULT_STRING_VAL} if no such mapping
 	 * exists.
-	 * 
-	 * @param key
-	 * @return
 	 */
 	@Override
 	public String optString(String key) {
@@ -69,10 +59,6 @@ public class JSONUtil implements ParserUtil.IParser {
 
 	/**
 	 * Returns the value mapped by name, or {@code defaultValue} if no such mapping exists.
-	 * 
-	 * @param key
-	 * @param defaultValue
-	 * @return
 	 */
 	@Override
 	public String optString(String key, String defaultValue) {
@@ -103,9 +89,6 @@ public class JSONUtil implements ParserUtil.IParser {
 	/**
 	 * Returns the value mapped by name, or {@code JSONUTIL_DEFAULT_INTEGER_VAL} if no such mapping
 	 * exists.
-	 * 
-	 * @param key
-	 * @return
 	 */
 	@Override
 	public Integer optInteger(String key) {
@@ -114,10 +97,6 @@ public class JSONUtil implements ParserUtil.IParser {
 
 	/**
 	 * Returns the value mapped by name, or {@code defaultValue} if no such mapping exists.
-	 * 
-	 * @param key
-	 * @param defaultValue
-	 * @return
 	 */
 	@Override
 	public Integer optInteger(String key, Integer defaultValue) {
@@ -169,9 +148,6 @@ public class JSONUtil implements ParserUtil.IParser {
 	/**
 	 * Returns the value mapped by name, or {@code JSONUTIL_DEFAULT_BOOLEAN_VAL} if no such mapping
 	 * exists.
-	 * 
-	 * @param key
-	 * @return
 	 */
 	@Override
 	public Boolean optBoolean(String key) {
@@ -180,10 +156,6 @@ public class JSONUtil implements ParserUtil.IParser {
 
 	/**
 	 * Returns the value mapped by name, or {@code defaultValue} if no such mapping exists.
-	 * 
-	 * @param key
-	 * @param defaultValue
-	 * @return
 	 */
 	@Override
 	public Boolean optBoolean(String key, Boolean defaultValue) {

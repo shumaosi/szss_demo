@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.BaseViewHolder> {
 
-	ArrayList<ItemModel> mDataList;
+	private ArrayList<ItemModel> mDataList;
 
 	public HomeListAdapter() {
 
@@ -92,9 +92,9 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.BaseVi
 		return mDataList.size();
 	}
 
-	public static class BaseViewHolder extends RecyclerView.ViewHolder {
+	static class BaseViewHolder extends RecyclerView.ViewHolder {
 
-		public BaseViewHolder(View itemView) {
+		BaseViewHolder(View itemView) {
 			super(itemView);
 		}
 	}

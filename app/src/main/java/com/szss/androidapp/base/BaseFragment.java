@@ -13,7 +13,7 @@ public class BaseFragment extends Fragment {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		RxBus.getInstance().unSubcribe();
+		RxBus.getInstance().unSubscribe();
 	}
 
 }

@@ -75,8 +75,7 @@ public class HomeImageAdapter extends RecyclerView.Adapter {
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false);
-		RecyclerView.ViewHolder viewHolder = new ImageViewHolder(view);
-		return viewHolder;
+		return new ImageViewHolder(view);
 	}
 
 	@Override
@@ -94,13 +93,13 @@ public class HomeImageAdapter extends RecyclerView.Adapter {
 
 		private ImageView mImageView;
 
-		public ImageViewHolder(View itemView) {
+		private ImageViewHolder(View itemView) {
 			super(itemView);
-			int width = (Utils.getScreenSize(itemView.getContext()).x - (DensityUtil
-					.dip2px(itemView.getContext(), 4) * 4) )/ 3;
+			int imageWidthAndHeight = (Utils.getScreenSize(itemView.getContext()).x - (DensityUtil
+					.dip2px(itemView.getContext(), 4) * 4)) / 3;
 			mImageView = (ImageView) itemView.findViewById(R.id.imageitemview);
-			mImageView.getLayoutParams().height = width;
-			mImageView.getLayoutParams().width = width;
+			mImageView.getLayoutParams().height = imageWidthAndHeight;
+			mImageView.getLayoutParams().width = imageWidthAndHeight;
 		}
 	}
 
