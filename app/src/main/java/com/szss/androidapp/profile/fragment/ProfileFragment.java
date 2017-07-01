@@ -62,7 +62,7 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 			public void accept(@NonNull Object o) throws Exception {
 				if (o instanceof UpdateProfileIconEvent) {
 					UpdateProfileIconEvent updateProfileIconEvent = (UpdateProfileIconEvent) o;
-					Glide.with(getContext()).load(updateProfileIconEvent.getImageItem().path).error(R.mipmap.ic_launcher).into(mImageView);
+					Glide.with(getContext()).load(updateProfileIconEvent.getImageItem().path).error(R.drawable.wuwei).into(mImageView);
 				} else if (o instanceof RefreshProfileEvent) {
 					refreshData();
 				}

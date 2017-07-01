@@ -86,7 +86,7 @@
         android:layout_margin="16dp"
         android:layout_marginBottom="32dp"
         android:layout_marginRight="16dp"
-        android:src="@mipmap/ic_start"
+        android:src="@drawable/ic_reply"
         app:layout_behavior="@string/translate_up_down_behavior"
         app:layout_scrollFlags="scroll|enterAlways|snap"/>
 

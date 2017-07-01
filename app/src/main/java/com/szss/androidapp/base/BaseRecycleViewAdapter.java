@@ -44,7 +44,7 @@ public class BaseRecycleViewAdapter extends RecyclerView.Adapter {
 	}
 
 	public void addData(List list) {
-		getDataList().addAll(list)
+		getDataList().addAll(list);
 		notifyDataSetChanged();
 	}
 

@@ -12,13 +12,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.alibaba.mobileim.IYWLoginService;
+import com.alibaba.mobileim.YWAPI;
+import com.alibaba.mobileim.YWLoginParam;
+import com.alibaba.mobileim.channel.event.IWxCallback;
 import com.szss.androidapp.R;
 import com.szss.androidapp.application.SzssApp;
 import com.szss.androidapp.guide.LauncherActivity;
 import com.szss.androidapp.haojia.HaojiaFragment;
 import com.szss.androidapp.haowen.HaowenFragment;
+import com.szss.androidapp.home.fragment.HomeChatFragment;
 import com.szss.androidapp.home.fragment.HomeFragment;
-import com.szss.androidapp.home.fragment.HomeImageFragment;
+import com.szss.androidapp.imui.IMHelp;
+import com.szss.androidapp.imui.NotificationInitSampleHelper;
 import com.szss.androidapp.profile.fragment.ProfileFragment;
 import com.szss.androidapp.util.PrefsUtil;
 
@@ -81,12 +87,13 @@ public class EntryActivity extends BaseActivity {
 			startActivity(intent);
 			finish();
 		} else {
-			Observable.timer(2, TimeUnit.SECONDS)
+			Observable.timer(0, TimeUnit.SECONDS)
 					.observeOn(AndroidSchedulers.mainThread())
 					.subscribe(new Consumer<Long>() {
 						@Override
 						public void accept(@io.reactivex.annotations.NonNull Long aLong) throws Exception {
 							setContentView(R.layout.activity_main);
+							initIM();
 							initSystemBarTint();
 							initFragments();
 							BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -101,6 +108,34 @@ public class EntryActivity extends BaseActivity {
 //				e.printStackTrace();
 //			}
 		}
+	}
+
+	private void initIM() {
+		//此实现不一定要放在Application onCreate中
+		//此对象获取到后，保存为全局对象，供APP使用
+		//此对象跟用户相关，如果切换了用户，需要重新获取
+		IMHelp.mIMKit = YWAPI.getIMKitInstance(IMHelp.USERID, IMHelp.IM_APP_KEY);
+		IYWLoginService loginService = IMHelp.mIMKit.getLoginService();
+		YWLoginParam loginParam = YWLoginParam.createLoginParam(IMHelp.USERID, IMHelp.PASSWORD);
+		loginService.login(loginParam, new IWxCallback() {
+
+			@Override
+			public void onSuccess(Object... arg0) {
+				NotificationInitSampleHelper.init();
+			}
+
+			@Override
+			public void onProgress(int arg0) {
+				// TODO Auto-generated method stub
+				Toast.makeText(EntryActivity.this, arg0 + "", Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onError(int errCode, String description) {
+				//如果登录失败，errCode为错误码,description是错误的具体描述信息
+				Toast.makeText(EntryActivity.this, description + "", Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 
@@ -125,7 +160,7 @@ public class EntryActivity extends BaseActivity {
 		mFragments = new ArrayList<>();
 		mFragments.add(NAVIGATION_TAB_HOME, new HomeFragment());
 		mFragments.add(NAVIGATION_TAB_HAOJIA, new HaojiaFragment());
-		mFragments.add(NAVIGATION_TAB_HAOWU, new HomeImageFragment());
+		mFragments.add(NAVIGATION_TAB_HAOWU, new HomeChatFragment());
 		mFragments.add(NAVIGATION_TAB_HAOWEN, new HaowenFragment());
 		mFragments.add(NAVIGATION_TAB_PROFILE, new ProfileFragment());
 	}

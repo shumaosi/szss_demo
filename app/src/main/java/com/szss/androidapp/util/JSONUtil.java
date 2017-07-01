@@ -19,7 +19,7 @@ public class JSONUtil implements ParserUtil.IParser {
 
 	private JSONObject jsonObject = null;
 
-	private JSONUtil(JSONObject jsonObject) {
+	public JSONUtil(JSONObject jsonObject) {
 		this.jsonObject = jsonObject;
 	}
 

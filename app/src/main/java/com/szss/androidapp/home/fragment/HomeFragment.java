@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
 			mFragmentList = new ArrayList<>();
 			mFragmentList.add(new Pair<String, Fragment>("松鼠新闻", HomeNewsFragment.newInstance()));
 			mFragmentList.add(new Pair<String, Fragment>("图片", HomeImageFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("微信", HomeWeiXinFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("聊天", HomeChatFragment.newInstance()));
 //			mFragmentList.add(new Pair<String, Fragment>("OkRx2", HomeListFragment.newInstance()));
 //			mFragmentList.add(new Pair<String, Fragment>("OkDownload", HomeListFragment.newInstance()));
 //			mFragmentList.add(new Pair<String, Fragment>("OkUpload", HomeListFragment.newInstance()));

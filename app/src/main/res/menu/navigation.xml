@@ -18,7 +18,7 @@
     <item
         android:id="@+id/navigation_haowu"
         android:icon="@drawable/ic_redeem_black_24dp"
-        android:title="好物"
+        android:title="聊天"
         app:showAsAction="withText"
         />
 

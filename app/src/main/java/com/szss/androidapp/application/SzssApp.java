@@ -11,6 +11,7 @@ import com.lzy.okgo.https.HttpsUtils;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.HttpParams;
+import com.szss.androidapp.imui.IMHelp;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -31,6 +32,7 @@ public class SzssApp extends Application {
 
 	private static SzssApp instance;
 
+
 	public static SzssApp getInstance() {
 		return instance;
 	}
@@ -40,7 +42,9 @@ public class SzssApp extends Application {
 		super.onCreate();
 		instance = this;
 		initOkGo();
+		IMHelp.initIMSDK(this);
 	}
+
 
 	private void initOkGo() {
 		//---------这里给出的是示例代码,告诉你可以这么传,实际使用的时候,根据需要传,不需要就不传-------------//
