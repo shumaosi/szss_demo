@@ -96,5 +96,6 @@
 
     <color name="brown_f57a46">#bb6b2e</color>
 
+    <color name="scan_corner_color">#0effc2</color>
 
 </resources>

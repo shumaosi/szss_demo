@@ -16,7 +16,9 @@ import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.szss.androidapp.R;
 import com.szss.androidapp.action.ActionName;
+import com.szss.androidapp.barcode.activity.CaptureActivity;
 import com.szss.androidapp.base.BaseFragment;
+import com.szss.androidapp.base.EntryActivity;
 import com.szss.androidapp.model.ProfileItem;
 import com.szss.androidapp.profile.adapter.ProfileAdapter;
 import com.szss.androidapp.rxbus.RefreshProfileEvent;
@@ -94,19 +96,7 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 		list.add(new ProfileItem(ProfileItem.ItemType.setting));
 		list.add(new ProfileItem(ProfileItem.ItemType.notification));
 		list.add(new ProfileItem(ProfileItem.ItemType.message));
-		list.add(new ProfileItem(ProfileItem.ItemType.setting));
-		list.add(new ProfileItem(ProfileItem.ItemType.notification));
-		list.add(new ProfileItem(ProfileItem.ItemType.message));
-		list.add(new ProfileItem(ProfileItem.ItemType.setting));
-		list.add(new ProfileItem(ProfileItem.ItemType.notification));
-		list.add(new ProfileItem(ProfileItem.ItemType.message));
-		list.add(new ProfileItem(ProfileItem.ItemType.setting));
-		list.add(new ProfileItem(ProfileItem.ItemType.notification));
-		list.add(new ProfileItem(ProfileItem.ItemType.message));
-		list.add(new ProfileItem(ProfileItem.ItemType.setting));
-		list.add(new ProfileItem(ProfileItem.ItemType.notification));
-		list.add(new ProfileItem(ProfileItem.ItemType.message));
-
+		list.add(new ProfileItem(ProfileItem.ItemType.capture));
 		mProfileAdapter.addData(list);
 	}
 
@@ -129,6 +119,10 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 				imagePicker.setCrop(false);
 				Intent intent = new Intent(getActivity(), ImageGridActivity.class);
 				startActivityForResult(intent, 100);
+				break;
+			case ProfilePage_CaptureAction:
+				intent = new Intent(ProfileFragment.this.getContext(), CaptureActivity.class);
+				startActivityForResult(intent, EntryActivity.REQUEST_CODE);
 				break;
 		}
 	}

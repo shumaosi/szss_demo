@@ -27,6 +27,7 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 	public static final int TYPE_SETTING = 4;
 	public static final int TYPE_NOTIFICATION = 5;
 	public static final int TYPE_MESSAGE = 6;
+	public static final int TYPE_CAPTURE = 7;
 
 	private ProfileActionClickListener mProfileActionClickListener;
 
@@ -53,7 +54,8 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 		final int itemType = getItemViewType(position);
 		if (itemType == TYPE_SETTING
 				|| itemType == TYPE_NOTIFICATION
-				|| itemType == TYPE_MESSAGE) {
+				|| itemType == TYPE_MESSAGE
+				|| itemType == TYPE_CAPTURE) {
 			bindImageTextViewHolderData((ProfileImageTextViewHolder) holder, itemType);
 		} else if (itemType == TYPE_PROFILE_INFO) {
 
@@ -61,7 +63,11 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				if (itemType == TYPE_CAPTURE) {
+					if (mProfileActionClickListener != null) {
+						mProfileActionClickListener.profileActionClick(ActionName.ProfilePage_CaptureAction, null);
+					}
+				}
 			}
 		});
 	}
@@ -82,6 +88,8 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 				return TYPE_NOTIFICATION;
 			case message:
 				return TYPE_MESSAGE;
+			case capture:
+				return TYPE_CAPTURE;
 			default:
 				return TYPE_SPACE;
 		}
@@ -144,6 +152,10 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 			case TYPE_MESSAGE:
 				imageRes = R.drawable.ic_message_black_24dp;
 				des = profileImageTextViewHolder.itemView.getContext().getString(R.string.message);
+				break;
+			case TYPE_CAPTURE:
+				imageRes = R.drawable.ic_home_black_24dp;
+				des = "扫码";
 				break;
 			default:
 				imageRes = R.drawable.ic_settings_black_24dp;

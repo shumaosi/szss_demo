@@ -10,6 +10,7 @@ public enum ActionName {
 	ProfilePage_UserInfoIconClickAction,
 	ProfilePage_SettingAction,
 	ProfilePage_NotificationAction,
-	ProfilePage_MessageAction
+	ProfilePage_MessageAction,
+	ProfilePage_CaptureAction
 
 }

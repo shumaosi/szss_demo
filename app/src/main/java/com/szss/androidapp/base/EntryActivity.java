@@ -44,6 +44,11 @@ public class EntryActivity extends BaseActivity {
 	public static final int NAVIGATION_TAB_HAOWEN = 3;
 	public static final int NAVIGATION_TAB_PROFILE = 4;
 
+	/**
+	 * 扫描跳转Activity RequestCode
+	 */
+	public static final int REQUEST_CODE = 111;
+
 	private ArrayList<Fragment> mFragments;
 
 	private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -122,6 +127,7 @@ public class EntryActivity extends BaseActivity {
 			@Override
 			public void onSuccess(Object... arg0) {
 				NotificationInitSampleHelper.init();
+
 			}
 
 			@Override
@@ -216,4 +222,22 @@ public class EntryActivity extends BaseActivity {
 		}
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == REQUEST_CODE) {
+			//处理扫描结果（在界面上显示）
+//			if (null != data) {
+//				Bundle bundle = data.getExtras();
+//				if (bundle == null) {
+//					return;
+//				}
+//				if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
+//					String result = bundle.getString(CodeUtils.RESULT_STRING);
+//					Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+//				} else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
+//					Toast.makeText(EntryActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+//				}
+//			}
+		}
+	}
 }

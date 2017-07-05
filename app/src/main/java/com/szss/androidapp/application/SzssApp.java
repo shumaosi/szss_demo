@@ -12,7 +12,6 @@ import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.HttpParams;
 import com.szss.androidapp.imui.IMHelp;
-
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
@@ -43,6 +42,7 @@ public class SzssApp extends Application {
 		instance = this;
 		initOkGo();
 		IMHelp.initIMSDK(this);
+
 	}
 
 

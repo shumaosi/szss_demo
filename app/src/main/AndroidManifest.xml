@@ -39,6 +39,9 @@
         <activity
             android:name=".imui.ContactListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".barcode.activity.CaptureActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
