@@ -154,7 +154,7 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 				des = profileImageTextViewHolder.itemView.getContext().getString(R.string.message);
 				break;
 			case TYPE_CAPTURE:
-				imageRes = R.drawable.ic_home_black_24dp;
+				imageRes = R.drawable.ic_center_focus_strong_black_24dp;
 				des = "扫码";
 				break;
 			default:

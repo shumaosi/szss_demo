@@ -1,8 +1,12 @@
 package com.szss.androidapp.profile.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.lzy.imagepicker.ImageDataSource;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -37,6 +42,8 @@ import io.reactivex.functions.Consumer;
  */
 
 public class ProfileFragment extends BaseFragment implements ProfileAdapter.ProfileActionClickListener {
+
+	public static final int REQUEST_PERMISSION_CAMERA = 0x02;
 
 	private RecyclerView mRecyclerView;
 	private ProfileAdapter mProfileAdapter;
@@ -121,8 +128,14 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 				startActivityForResult(intent, 100);
 				break;
 			case ProfilePage_CaptureAction:
-				intent = new Intent(ProfileFragment.this.getContext(), CaptureActivity.class);
-				startActivityForResult(intent, EntryActivity.REQUEST_CODE);
+				if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+					if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+						intent = new Intent(ProfileFragment.this.getContext(), CaptureActivity.class);
+						startActivityForResult(intent, EntryActivity.REQUEST_CODE);
+					} else {
+						ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
+					}
+				}
 				break;
 		}
 	}

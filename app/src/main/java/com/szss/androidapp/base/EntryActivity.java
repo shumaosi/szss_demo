@@ -2,6 +2,7 @@ package com.szss.androidapp.base;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -16,8 +17,10 @@ import com.alibaba.mobileim.IYWLoginService;
 import com.alibaba.mobileim.YWAPI;
 import com.alibaba.mobileim.YWLoginParam;
 import com.alibaba.mobileim.channel.event.IWxCallback;
+import com.lzy.imagepicker.ImagePicker;
 import com.szss.androidapp.R;
 import com.szss.androidapp.application.SzssApp;
+import com.szss.androidapp.barcode.activity.CaptureActivity;
 import com.szss.androidapp.guide.LauncherActivity;
 import com.szss.androidapp.haojia.HaojiaFragment;
 import com.szss.androidapp.haowen.HaowenFragment;
@@ -238,6 +241,17 @@ public class EntryActivity extends BaseActivity {
 //					Toast.makeText(EntryActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
 //				}
 //			}
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		if (requestCode == ProfileFragment.REQUEST_PERMISSION_CAMERA) {
+			if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				Intent intent = new Intent(this, CaptureActivity.class);
+				startActivityForResult(intent, EntryActivity.REQUEST_CODE);
+			}
 		}
 	}
 }
