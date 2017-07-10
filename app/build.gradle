@@ -42,5 +42,6 @@ dependencies {
     compile 'com.r0adkll:slidableactivity:2.0.5'
     testCompile 'junit:junit:4.12'
     compile 'com.google.zxing:core:3.3.0'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
     compile project(':wx')
 }

@@ -9,7 +9,7 @@ import com.lzy.ninegrid.NineGridView;
 import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.WebActivity;
-import com.szss.androidapp.model.NewsModel;
+import com.szss.androidapp.common.model.NewsModel;
 import com.szss.androidapp.util.Utils;
 
 import java.util.ArrayList;

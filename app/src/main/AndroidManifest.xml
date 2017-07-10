@@ -19,29 +19,33 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".guide.LauncherActivity"
+            android:name=".module.guide.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".guide.SplashActivity"
+            android:name=".module.guide.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".guide.LoginActivity"
+            android:name=".module.guide.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".guide.WelcomeActivity"
+            android:name=".module.guide.WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".base.WebActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".imui.ContactListActivity"
+            android:name=".module.imui.ContactListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".barcode.activity.CaptureActivity"
+            android:name=".module.barcode.activity.CaptureActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".module.setting.SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

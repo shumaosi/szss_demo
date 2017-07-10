@@ -1,6 +1,9 @@
 package com.szss.androidapp.util;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
@@ -10,6 +13,8 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+
+import com.szss.androidapp.application.SzssApp;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -191,6 +196,34 @@ public class Utils {
 			}
 		} catch (Exception e) {
 
+		}
+	}
+
+	public static String getAppVersionString(Context context) {
+		if (context == null) {
+			context = SzssApp.getInstance();
+		}
+
+		try {
+			PackageManager manager = context.getPackageManager();
+			PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+			return info.versionName;
+		} catch (Exception e) {
+			return "";
+		}
+	}
+
+	public static String getAppName(Context context) {
+		if (context == null) {
+			context = SzssApp.getInstance();
+		}
+
+		try {
+			PackageManager manager = context.getPackageManager();
+			ApplicationInfo info = manager.getApplicationInfo(context.getApplicationInfo().packageName, 0);
+			return manager.getApplicationLabel(info).toString();
+		} catch (Exception e) {
+			return "";
 		}
 	}
 

@@ -28,27 +28,20 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
-                    android:text="三只松鼠 Demo"
+                    android:text="@string/appname"
                     android:textColor="@color/black_1a1a1a"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
                 <ImageView
-                    android:id="@+id/menu_message"
+                    android:id="@+id/barcodeicon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
-                    android:src="@drawable/menu_message_select"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15dp"
-                    android:layout_toLeftOf="@id/menu_message"
-                    android:src="@drawable/menu_search_select"/>
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_center_focus_strong_black_24dp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -86,7 +79,7 @@
         android:layout_margin="16dp"
         android:layout_marginBottom="32dp"
         android:layout_marginRight="16dp"
-        android:src="@drawable/ic_reply"
+        android:src="@drawable/ic_add_shopping_cart_black_24dp"
         app:layout_behavior="@string/translate_up_down_behavior"
         app:layout_scrollFlags="scroll|enterAlways|snap"/>
 

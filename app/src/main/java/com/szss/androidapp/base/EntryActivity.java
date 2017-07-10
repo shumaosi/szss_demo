@@ -17,18 +17,17 @@ import com.alibaba.mobileim.IYWLoginService;
 import com.alibaba.mobileim.YWAPI;
 import com.alibaba.mobileim.YWLoginParam;
 import com.alibaba.mobileim.channel.event.IWxCallback;
-import com.lzy.imagepicker.ImagePicker;
 import com.szss.androidapp.R;
 import com.szss.androidapp.application.SzssApp;
-import com.szss.androidapp.barcode.activity.CaptureActivity;
-import com.szss.androidapp.guide.LauncherActivity;
-import com.szss.androidapp.haojia.HaojiaFragment;
-import com.szss.androidapp.haowen.HaowenFragment;
-import com.szss.androidapp.home.fragment.HomeChatFragment;
-import com.szss.androidapp.home.fragment.HomeFragment;
-import com.szss.androidapp.imui.IMHelp;
-import com.szss.androidapp.imui.NotificationInitSampleHelper;
-import com.szss.androidapp.profile.fragment.ProfileFragment;
+import com.szss.androidapp.module.barcode.activity.CaptureActivity;
+import com.szss.androidapp.module.guide.LauncherActivity;
+import com.szss.androidapp.module.haojia.HaojiaFragment;
+import com.szss.androidapp.module.haowen.HaowenFragment;
+import com.szss.androidapp.module.home.fragment.HomeChatFragment;
+import com.szss.androidapp.module.home.fragment.HomeFragment;
+import com.szss.androidapp.module.imui.NotificationInitSampleHelper;
+import com.szss.androidapp.module.profile.fragment.ProfileFragment;
+import com.szss.androidapp.util.IMUtil;
 import com.szss.androidapp.util.PrefsUtil;
 
 import java.lang.reflect.Field;
@@ -122,9 +121,9 @@ public class EntryActivity extends BaseActivity {
 		//此实现不一定要放在Application onCreate中
 		//此对象获取到后，保存为全局对象，供APP使用
 		//此对象跟用户相关，如果切换了用户，需要重新获取
-		IMHelp.mIMKit = YWAPI.getIMKitInstance(IMHelp.USERID, IMHelp.IM_APP_KEY);
-		IYWLoginService loginService = IMHelp.mIMKit.getLoginService();
-		YWLoginParam loginParam = YWLoginParam.createLoginParam(IMHelp.USERID, IMHelp.PASSWORD);
+		IMUtil.mIMKit = YWAPI.getIMKitInstance(IMUtil.USERID, IMUtil.IM_APP_KEY);
+		IYWLoginService loginService = IMUtil.mIMKit.getLoginService();
+		YWLoginParam loginParam = YWLoginParam.createLoginParam(IMUtil.USERID, IMUtil.PASSWORD);
 		loginService.login(loginParam, new IWxCallback() {
 
 			@Override
@@ -136,13 +135,13 @@ public class EntryActivity extends BaseActivity {
 			@Override
 			public void onProgress(int arg0) {
 				// TODO Auto-generated method stub
-				Toast.makeText(EntryActivity.this, arg0 + "", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(EntryActivity.this, arg0 + "", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
 			public void onError(int errCode, String description) {
 				//如果登录失败，errCode为错误码,description是错误的具体描述信息
-				Toast.makeText(EntryActivity.this, description + "", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(EntryActivity.this, description + "", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
