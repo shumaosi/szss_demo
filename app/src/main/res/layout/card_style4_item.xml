@@ -19,7 +19,7 @@
             android:src="@drawable/jinxuanicon1"/>
 
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="150dp"
             android:layout_weight="0"
             android:background="@color/gray_eeeeee"/>
@@ -41,7 +41,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/gray_eeeeee"/>
 
             <LinearLayout
@@ -59,7 +59,7 @@
                     android:src="@drawable/jinxuanicon3"/>
 
                 <View
-                    android:layout_width="1px"
+                    android:layout_width="1dp"
                     android:layout_height="75dp"
                     android:layout_weight="0"
                     android:background="@color/gray_eeeeee"/>
@@ -81,7 +81,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="1dp"
         android:background="@color/gray_eeeeee"/>
 
     <LinearLayout
@@ -99,7 +99,7 @@
             android:src="@drawable/jinxuanicon5"/>
 
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
             android:background="@color/gray_eeeeee"/>
@@ -114,7 +114,7 @@
             android:src="@drawable/jinxuanicon6"/>
 
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
             android:background="@color/gray_eeeeee"/>
@@ -129,7 +129,7 @@
             android:src="@drawable/jinxuanicon7"/>
 
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
             android:background="@color/gray_eeeeee"/>

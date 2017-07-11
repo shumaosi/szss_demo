@@ -45,7 +45,7 @@ public class HaojiaFragment extends Fragment {
 		mToolbarText.setText("好价");
 		mViewPager.setAdapter(new HaojiaViewPagerAdapter(getChildFragmentManager()));
 		mTabLayout.setupWithViewPager(mViewPager);
-		mViewPager.setCurrentItem(1);
+		mViewPager.setCurrentItem(0);
 
 	}
 

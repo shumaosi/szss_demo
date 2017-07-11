@@ -1,6 +1,6 @@
 package com.szss.androidapp.application;
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
@@ -28,7 +28,7 @@ import okhttp3.OkHttpClient;
  * Created by wuwei on 2017/6/14.
  */
 
-public class SzssApp extends Application {
+public class SzssApp extends MultiDexApplication {
 
 	private static SzssApp instance;
 

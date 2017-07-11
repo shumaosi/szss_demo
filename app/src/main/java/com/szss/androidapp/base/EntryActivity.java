@@ -25,6 +25,7 @@ import com.szss.androidapp.module.haojia.HaojiaFragment;
 import com.szss.androidapp.module.haowen.HaowenFragment;
 import com.szss.androidapp.module.home.fragment.HomeChatFragment;
 import com.szss.androidapp.module.home.fragment.HomeFragment;
+import com.szss.androidapp.module.home.fragment.HomeNewsFragment;
 import com.szss.androidapp.module.imui.NotificationInitSampleHelper;
 import com.szss.androidapp.module.profile.fragment.ProfileFragment;
 import com.szss.androidapp.util.IMUtil;
@@ -169,7 +170,7 @@ public class EntryActivity extends BaseActivity {
 		mFragments.add(NAVIGATION_TAB_HOME, new HomeFragment());
 		mFragments.add(NAVIGATION_TAB_HAOJIA, new HaojiaFragment());
 		mFragments.add(NAVIGATION_TAB_HAOWU, new HomeChatFragment());
-		mFragments.add(NAVIGATION_TAB_HAOWEN, new HaowenFragment());
+		mFragments.add(NAVIGATION_TAB_HAOWEN, new HomeNewsFragment());
 		mFragments.add(NAVIGATION_TAB_PROFILE, new ProfileFragment());
 	}
 

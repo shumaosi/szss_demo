@@ -23,6 +23,7 @@ import com.szss.androidapp.R;
 import com.szss.androidapp.base.EntryActivity;
 import com.szss.androidapp.base.WebActivity;
 import com.szss.androidapp.module.barcode.activity.CaptureActivity;
+import com.szss.androidapp.module.haowen.HaowenFragment;
 import com.szss.androidapp.module.profile.fragment.ProfileFragment;
 
 import java.util.ArrayList;
@@ -92,9 +93,9 @@ public class HomeFragment extends Fragment {
 		public HomeViewPagerAdapter(FragmentManager fm) {
 			super(fm);
 			mFragmentList = new ArrayList<>();
-			mFragmentList.add(new Pair<String, Fragment>("松鼠新闻", HomeNewsFragment.newInstance()));
+			mFragmentList.add(new Pair<String, Fragment>("好文", new HaowenFragment()));
 			mFragmentList.add(new Pair<String, Fragment>("图片", HomeImageFragment.newInstance()));
-			mFragmentList.add(new Pair<String, Fragment>("聊天", HomeChatFragment.newInstance()));
+//			mFragmentList.add(new Pair<String, Fragment>("聊天", HomeChatFragment.newInstance()));
 //			mFragmentList.add(new Pair<String, Fragment>("OkRx2", HomeListFragment.newInstance()));
 //			mFragmentList.add(new Pair<String, Fragment>("OkDownload", HomeListFragment.newInstance()));
 //			mFragmentList.add(new Pair<String, Fragment>("OkUpload", HomeListFragment.newInstance()));

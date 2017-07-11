@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:src="@drawable/ic_center_focus_strong_black_24dp"/>
+                    app:srcCompat="@drawable/ic_center_focus_strong_black_24dp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -79,7 +79,7 @@
         android:layout_margin="16dp"
         android:layout_marginBottom="32dp"
         android:layout_marginRight="16dp"
-        android:src="@drawable/ic_add_shopping_cart_black_24dp"
+        app:srcCompat="@drawable/ic_add_shopping_cart_black_24dp"
         app:layout_behavior="@string/translate_up_down_behavior"
         app:layout_scrollFlags="scroll|enterAlways|snap"/>
 

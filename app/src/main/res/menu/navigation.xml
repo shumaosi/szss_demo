@@ -25,7 +25,7 @@
     <item
         android:id="@+id/navigation_haowen"
         android:icon="@drawable/ic_description_black_24dp"
-        android:title="好文"
+        android:title="资讯"
         app:showAsAction="withText"/>
 
     <item
