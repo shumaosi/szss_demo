@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.BaseRecycleViewAdapter;
+import com.szss.androidapp.base.EntryActivity;
 import com.szss.androidapp.common.model.BannerModel;
 import com.szss.androidapp.common.model.CardStyle1Model;
 import com.szss.androidapp.common.model.CardStyle2Model;

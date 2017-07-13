@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".base.EntryActivity"
+            android:name=".module.guide.LauncherActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.HaswindowBackground">
             <intent-filter>
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".module.guide.LauncherActivity"
+            android:name=".base.EntryActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity

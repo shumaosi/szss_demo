@@ -1,5 +1,6 @@
 package com.szss.androidapp.module.guide;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,9 +11,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.alibaba.mobileim.IYWLoginService;
+import com.alibaba.mobileim.YWAPI;
+import com.alibaba.mobileim.YWLoginParam;
+import com.alibaba.mobileim.channel.event.IWxCallback;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.BaseActivity;
+import com.szss.androidapp.base.EntryActivity;
+import com.szss.androidapp.module.imui.NotificationInitSampleHelper;
 import com.szss.androidapp.util.DensityUtil;
+import com.szss.androidapp.util.IMUtil;
 
 import java.util.ArrayList;
 
@@ -32,6 +40,7 @@ public class LauncherActivity extends BaseActivity implements ViewPager.OnPageCh
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.luancher_view);
+		initIM();
 		initTips();
 		initViewPager();
 	}
@@ -46,7 +55,7 @@ public class LauncherActivity extends BaseActivity implements ViewPager.OnPageCh
 		tips = new ImageView[4];
 		for (int i = 0; i < tips.length; i++) {
 			ImageView imageView = new ImageView(this);
-			imageView.setLayoutParams(new ViewGroup.LayoutParams(DensityUtil.px2dip(this,10), DensityUtil.px2dip(this,10)));
+			imageView.setLayoutParams(new ViewGroup.LayoutParams(DensityUtil.px2dip(this, 10), DensityUtil.px2dip(this, 10)));
 			if (i == 0) {
 				imageView.setBackgroundResource(R.drawable.page_indicator_focused);
 			} else {
@@ -54,9 +63,9 @@ public class LauncherActivity extends BaseActivity implements ViewPager.OnPageCh
 			}
 			tips[i] = imageView;
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-			layoutParams.leftMargin = DensityUtil.px2dip(this,30);
-			layoutParams.rightMargin = DensityUtil.px2dip(this,30);
-			viewGroup.addView(imageView,layoutParams);
+			layoutParams.leftMargin = DensityUtil.px2dip(this, 30);
+			layoutParams.rightMargin = DensityUtil.px2dip(this, 30);
+			viewGroup.addView(imageView, layoutParams);
 		}
 	}
 
@@ -118,6 +127,42 @@ public class LauncherActivity extends BaseActivity implements ViewPager.OnPageCh
 		public int getCount() {
 			return mFragments.size();
 		}
+	}
+
+	public void openHome() {
+		Intent intent = new Intent(this, EntryActivity.class);
+		startActivity(intent);
+//		finish();
+		overridePendingTransition(R.anim.right_in, 0);
+	}
+
+	private void initIM() {
+		//此实现不一定要放在Application onCreate中
+		//此对象获取到后，保存为全局对象，供APP使用
+		//此对象跟用户相关，如果切换了用户，需要重新获取
+		IMUtil.mIMKit = YWAPI.getIMKitInstance(IMUtil.USERID, IMUtil.IM_APP_KEY);
+		IYWLoginService loginService = IMUtil.mIMKit.getLoginService();
+		YWLoginParam loginParam = YWLoginParam.createLoginParam(IMUtil.USERID, IMUtil.PASSWORD);
+		loginService.login(loginParam, new IWxCallback() {
+
+			@Override
+			public void onSuccess(Object... arg0) {
+				NotificationInitSampleHelper.init();
+
+			}
+
+			@Override
+			public void onProgress(int arg0) {
+				// TODO Auto-generated method stub
+//				Toast.makeText(EntryActivity.this, arg0 + "", Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onError(int errCode, String description) {
+				//如果登录失败，errCode为错误码,description是错误的具体描述信息
+//				Toast.makeText(EntryActivity.this, description + "", Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 }

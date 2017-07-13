@@ -21,7 +21,7 @@ import com.szss.androidapp.module.imui.SmilyCustomSample;
 public class IMUtil {
 
 	public static String IM_APP_KEY = "23015524";
-	public static String USERID = "testpro1";
+	public static String USERID = "testpro3";
 	public static String PASSWORD = "taobao1234";
 	//	public static String IM_APP_KEY = "24526749";
 //	public static String USERID = "maosi";

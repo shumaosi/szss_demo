@@ -51,6 +51,7 @@ public class EntryActivity extends BaseActivity {
 	 * 扫描跳转Activity RequestCode
 	 */
 	public static final int REQUEST_CODE = 111;
+	public int currentTab = 0;
 
 	private ArrayList<Fragment> mFragments;
 
@@ -88,34 +89,34 @@ public class EntryActivity extends BaseActivity {
 	}
 
 	private void enterApp() {
-		SharedPreferences sharedPreferences = PrefsUtil.getInstance();
-		if (sharedPreferences.getBoolean(PrefsUtil.FIRST_OPEN_APP, true)) {
-			sharedPreferences.edit().putBoolean(PrefsUtil.FIRST_OPEN_APP, false).apply();
-			Intent intent = new Intent(this, LauncherActivity.class);
-			startActivity(intent);
-			finish();
-		} else {
-			Observable.timer(0, TimeUnit.SECONDS)
-					.observeOn(AndroidSchedulers.mainThread())
-					.subscribe(new Consumer<Long>() {
-						@Override
-						public void accept(@io.reactivex.annotations.NonNull Long aLong) throws Exception {
-							setContentView(R.layout.activity_main);
-							initIM();
-							initSystemBarTint();
-							initFragments();
-							BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-							disableShiftMode(navigation);
-							navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-							navigation.setSelectedItemId(getLastVisitNavigationId());
-						}
-					});
+//		SharedPreferences sharedPreferences = PrefsUtil.getInstance();
+//		if (sharedPreferences.getBoolean(PrefsUtil.FIRST_OPEN_APP, true)) {
+//			sharedPreferences.edit().putBoolean(PrefsUtil.FIRST_OPEN_APP, false).apply();
+//			Intent intent = new Intent(this, LauncherActivity.class);
+//			startActivity(intent);
+//			finish();
+//		} else {
+		Observable.timer(0, TimeUnit.SECONDS)
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Consumer<Long>() {
+					@Override
+					public void accept(@io.reactivex.annotations.NonNull Long aLong) throws Exception {
+						setContentView(R.layout.activity_main);
+//						initIM();
+						initSystemBarTint();
+						initFragments();
+						BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+						disableShiftMode(navigation);
+						navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+						navigation.setSelectedItemId(getLastVisitNavigationId());
+					}
+				});
 //			try {
 //				Thread.sleep(1000);
 //			} catch (InterruptedException e) {
 //				e.printStackTrace();
 //			}
-		}
+//		}
 	}
 
 	private void initIM() {
@@ -169,12 +170,13 @@ public class EntryActivity extends BaseActivity {
 		mFragments = new ArrayList<>();
 		mFragments.add(NAVIGATION_TAB_HOME, new HomeFragment());
 		mFragments.add(NAVIGATION_TAB_HAOJIA, new HaojiaFragment());
-		mFragments.add(NAVIGATION_TAB_HAOWU, new HomeChatFragment());
+		mFragments.add(NAVIGATION_TAB_HAOWU, IMUtil.mIMKit.getConversationFragment());
 		mFragments.add(NAVIGATION_TAB_HAOWEN, new HomeNewsFragment());
 		mFragments.add(NAVIGATION_TAB_PROFILE, new ProfileFragment());
 	}
 
 	private void showFragment(int index) {
+		currentTab = index;
 		FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 		for (int i = 0; i < mFragments.size(); i++) {
 			Fragment fragment = mFragments.get(i);
@@ -222,25 +224,6 @@ public class EntryActivity extends BaseActivity {
 			}
 		} catch (Exception e) {
 			Toast.makeText(SzssApp.getInstance().getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-		}
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == REQUEST_CODE) {
-			//处理扫描结果（在界面上显示）
-//			if (null != data) {
-//				Bundle bundle = data.getExtras();
-//				if (bundle == null) {
-//					return;
-//				}
-//				if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
-//					String result = bundle.getString(CodeUtils.RESULT_STRING);
-//					Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
-//				} else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-//					Toast.makeText(EntryActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
-//				}
-//			}
 		}
 	}
 

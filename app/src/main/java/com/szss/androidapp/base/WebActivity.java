@@ -122,6 +122,7 @@ public class WebActivity extends BaseActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (android.R.id.home == item.getItemId()) {
 			finish();
+			overridePendingTransition(0, R.anim.right_out);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

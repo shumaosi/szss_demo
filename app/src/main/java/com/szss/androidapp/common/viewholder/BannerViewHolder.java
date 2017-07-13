@@ -4,13 +4,10 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.WebActivity;
-import com.szss.androidapp.rxbus.RefreshProfileEvent;
-import com.szss.androidapp.rxbus.RxBus;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -45,17 +42,16 @@ public class BannerViewHolder extends RecyclerView.ViewHolder {
 		});
 
 //		ArrayList<Integer> imageList = new ArrayList<>();
-//		imageList.add(R.drawable.banner_photo_1);
-//		imageList.add(R.drawable.banner_photo_2);
-//		imageList.add(R.drawable.banner_photo_3);
+//		imageList.add(R.drawable.banner1);
+//		imageList.add(R.drawable.banner5);
+//		imageList.add(R.drawable.banner6);
 //		mBanner.setImages(imageList);
 
 		final ArrayList<String> imageUrlList = new ArrayList<>();
-		imageUrlList.add("http://my.3zitie.cn/shop/2015/2015316/img/2015031609284231824.jpg");
-		imageUrlList.add("http://s15.sinaimg.cn/middle/6cfc958ft9846c34bee2e&690");
-		imageUrlList.add("http://img.cheshi-img.com/product/1_1024/p/35300/35372/52e0a9823af8d.jpg");
+		imageUrlList.add("http://img.zcool.cn/community/018221574bf5fa6ac72525ae8d5a25.jpg@900w_1l_2o_100sh.jpg");
+		imageUrlList.add("http://www.quanmama.com/AdminImageUpload/ueditor/image/20160229/6359236345532236118392105.png");
+		imageUrlList.add("http://image.suning.cn/uimg/sop/commodity/298412517591554847189300_x.jpg");
 		mBanner.setImages(imageUrlList);
-
 		mBanner.setDelayTime(4 * 1000);
 		mBanner.setIndicatorGravity(BannerConfig.RIGHT);
 		mBanner.start();

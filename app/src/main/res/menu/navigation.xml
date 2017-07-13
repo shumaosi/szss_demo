@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/navigation_haowu"
-        android:icon="@drawable/ic_redeem_black_24dp"
+        android:icon="@drawable/ic_chat_bubble_black_24dp"
         android:title="聊天"
         app:showAsAction="withText"
         />

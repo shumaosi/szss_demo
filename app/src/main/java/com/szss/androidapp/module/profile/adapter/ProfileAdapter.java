@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.lzy.imagepicker.ImagePicker;
 import com.szss.androidapp.R;
 import com.szss.androidapp.base.BaseRecycleViewAdapter;
 import com.szss.androidapp.common.viewholder.HorizontalListViewHolder;
@@ -14,6 +16,8 @@ import com.szss.androidapp.common.viewholder.SpaceViewHolder;
 import com.szss.androidapp.common.model.ProfileItem;
 import com.szss.androidapp.common.view.RoundedImageView;
 import com.szss.androidapp.util.ActionName;
+
+import java.io.File;
 
 /**
  * Created by wuwei on 2017/6/16.
@@ -58,7 +62,7 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 				|| itemType == TYPE_CAPTURE) {
 			bindImageTextViewHolderData((ProfileImageTextViewHolder) holder, itemType);
 		} else if (itemType == TYPE_PROFILE_INFO) {
-
+			bindProfileInfoViewHodler((ProfileInfoViewHolder) holder);
 		}
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -122,11 +126,9 @@ public class ProfileAdapter extends BaseRecycleViewAdapter {
 	}
 
 	private void bindProfileInfoViewHodler(final ProfileInfoViewHolder profileInfoViewHolder) {
-		profileInfoViewHolder.icon.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-			}
-		});
+//		ImagePicker imagePicker = ImagePicker.getInstance();
+//		File file = imagePicker.getCropCacheFolder(profileInfoViewHolder.itemView.getContext());
+		Glide.with(profileInfoViewHolder.itemView.getContext()).load(R.drawable.wuwei).into(profileInfoViewHolder.icon);
 	}
 
 	private static class ProfileImageTextViewHolder extends RecyclerView.ViewHolder {

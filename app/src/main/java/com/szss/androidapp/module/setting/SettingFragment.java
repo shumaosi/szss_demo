@@ -6,6 +6,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
 
 import com.szss.androidapp.R;
@@ -35,11 +36,26 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
 	private PreferenceScreen createPreferenceHierarchy() {
 		// Root
 		mPreferenceScreen = this.getPreferenceManager().createPreferenceScreen(mActivity);
-		addAbout();
+		addSetting();
 		return mPreferenceScreen;
 	}
 
-	private void addAbout() {
+	private void addSetting() {
+
+		PreferenceCategory settingGroup = new PreferenceCategory(mActivity);
+		settingGroup.setTitle("基本设置");
+		mPreferenceScreen.addPreference(settingGroup);
+
+		SwitchPreference switchPreference = new SwitchPreference(mActivity);
+		switchPreference.setTitle("亮色主题");
+		switchPreference.setChecked(true);
+		settingGroup.addPreference(switchPreference);
+
+		SwitchPreference pushPreference = new SwitchPreference(mActivity);
+		pushPreference.setTitle("精选推送");
+		pushPreference.setChecked(true);
+		settingGroup.addPreference(pushPreference);
+
 		PreferenceCategory aboutGroup = new PreferenceCategory(mActivity);
 		aboutGroup.setTitle(R.string.settings_about);
 		mPreferenceScreen.addPreference(aboutGroup);

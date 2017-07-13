@@ -52,9 +52,9 @@ public class LauncherFragment extends Fragment {
 			mStartButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent(LauncherFragment.this.getContext(), EntryActivity.class);
-					startActivity(intent);
-					getActivity().finish();
+					if (getActivity() instanceof LauncherActivity) {
+						((LauncherActivity) getActivity()).openHome();
+					}
 				}
 			});
 		}

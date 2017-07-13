@@ -41,7 +41,7 @@
             android:layout_alignTop="@id/profileinfo_view_icon"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="2dp"
-            android:text="wuwei"
+            android:text="鼠茂斯"
             android:textColor="@color/black_222222"
             android:textSize="18sp"
             android:textStyle="bold"/>
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="0"
+                android:text="2000"
                 android:textColor="@color/all_black"
                 android:textStyle="bold"/>
 
@@ -92,8 +92,7 @@
                 android:layout_below="@id/profileinfo_view_goldcount"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="@string/gold"/>
-
+                android:text="会员卡余额"/>
 
         </RelativeLayout>
 
@@ -110,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="0"
+                android:text="5000"
                 android:textColor="@color/all_black"
                 android:textStyle="bold"/>
 
@@ -120,34 +119,7 @@
                 android:layout_below="@id/profileinfo_view_suiyingzicount"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="@string/sui_yingzi"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/profileinfo_view_jifengcount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="0"
-                android:textColor="@color/all_black"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/profileinfo_view_jifengcount"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:text="@string/integral"/>
+                android:text="投食卡余额"/>
 
         </RelativeLayout>
 

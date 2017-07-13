@@ -3,6 +3,7 @@ package com.szss.androidapp.util;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.widget.Button;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

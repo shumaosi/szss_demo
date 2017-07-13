@@ -2,6 +2,7 @@ package com.szss.androidapp.module.haojia;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -27,6 +28,7 @@ public class HaojiaFragment extends Fragment {
 	private ViewPager mViewPager;
 	private TabLayout mTabLayout;
 	private TextView mToolbarText;
+	private FloatingActionButton mFloatingActionButton;
 
 
 	@Nullable
@@ -36,6 +38,8 @@ public class HaojiaFragment extends Fragment {
 		mViewPager = (ViewPager) view.findViewById(R.id.main_viewpager);
 		mTabLayout = (TabLayout) view.findViewById(R.id.main_tab_layout);
 		mToolbarText = (TextView) view.findViewById(R.id.main_toolbar_text);
+		mFloatingActionButton = (FloatingActionButton) view.findViewById(R.id.fab);
+		mFloatingActionButton.setVisibility(View.GONE);
 		return view;
 	}
 

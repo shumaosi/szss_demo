@@ -2,6 +2,7 @@ package com.szss.androidapp.common.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.webkit.WebView;
@@ -23,6 +24,7 @@ public class ProgressWebView extends WebView {
 				android.R.attr.progressBarStyleHorizontal);
 		progressbar.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 				10, 0, 0));
+		ContextCompat.getColor(context,R.color.colorPrimaryDark);
 		Drawable drawable = ContextCompat.getDrawable(context, R.drawable.progress_bar_states);
 		progressbar.setProgressDrawable(drawable);
 		addView(progressbar);

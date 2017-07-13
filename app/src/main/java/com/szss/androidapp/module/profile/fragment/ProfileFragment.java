@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
+import com.lzy.imagepicker.view.CropImageView;
 import com.szss.androidapp.R;
 import com.szss.androidapp.module.barcode.activity.CaptureActivity;
 import com.szss.androidapp.base.BaseFragment;
@@ -120,10 +121,15 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 			case ProfilePage_UserInfoIconClickAction:
 				mImageView = (ImageView) view;
 				ImagePicker imagePicker = ImagePicker.getInstance();
-				imagePicker.setImageLoader(new GlideImageLoaderUtil());
 				imagePicker.setShowCamera(true);
-				imagePicker.setSelectLimit(1);
-				imagePicker.setCrop(false);
+				imagePicker.setMultiMode(false);
+				imagePicker.setCrop(true);
+				imagePicker.setStyle(CropImageView.Style.CIRCLE);
+				imagePicker.setFocusHeight(800);
+				imagePicker.setFocusWidth(800);
+				imagePicker.setOutPutY(800);
+				imagePicker.setOutPutX(800);
+				imagePicker.setImageLoader(new GlideImageLoaderUtil());
 				Intent intent = new Intent(getActivity(), ImageGridActivity.class);
 				startActivityForResult(intent, 100);
 				break;
@@ -152,6 +158,7 @@ public class ProfileFragment extends BaseFragment implements ProfileAdapter.Prof
 				//noinspection unchecked
 				List<ImageItem> images = (List<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
 				ImageItem imageItem = images.get(0);
+				ImagePicker.getInstance().setCropCacheFolder(null);
 				RxBus.getInstance().send(new UpdateProfileIconEvent(imageItem));
 			}
 		}

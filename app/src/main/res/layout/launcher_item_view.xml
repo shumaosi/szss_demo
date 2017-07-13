@@ -24,7 +24,7 @@
         android:paddingTop="2dp"
         android:text="@string/start_learn"
         android:textAllCaps="true"
-        android:textColor="@color/black_3b3b3b"
+        android:textColor="@color/all_white"
         android:textSize="17sp"
         android:textStyle="bold"
         android:visibility="invisible"/>

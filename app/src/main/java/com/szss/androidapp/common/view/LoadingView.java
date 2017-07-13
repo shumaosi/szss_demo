@@ -2,6 +2,7 @@ package com.szss.androidapp.common.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.szss.androidapp.BuildConfig;
 import com.szss.androidapp.R;
 
 /**
